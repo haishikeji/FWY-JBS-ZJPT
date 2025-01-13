@@ -1,0 +1,501 @@
+/* pages/store/add.wxss */
+.body
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.formitem
+{
+  display: flex;
+  align-items: center;
+  font-size: 11rpx;
+  margin-top: 14rpx;
+}
+.formitem input
+{
+  width: 260rpx;
+  height: 28rpx;
+  font-size: 10rpx;
+  border: 1rpx solid #dedede;
+  padding-left: 10rpx;
+  border-radius: 4rpx;
+}
+.radio
+{
+  /* transform:scale(0.5); */
+  margin-right: 15rpx !important;
+  font-size: 11rpx !important;
+}
+
+.imgpicker
+{
+  width: 120rpx;
+}
+.uptip
+{
+  color: #999999;
+}
+
+.fendian
+{
+  width: 260rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding-left: 10rpx;
+  border-radius: 6rpx;
+  font-size: 11rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.picker
+{
+  width: 260rpx;
+  height: 28rpx;
+  color: #333333;
+  z-index: 16;
+  position: absolute;
+  left: 0;
+  top: 0rpx;
+  border: none !important;
+}
+.picker1
+{
+  width: 260rpx;
+  height: 28rpx;
+  color: #999999;
+  z-index: 16;
+  left: 10rpx;
+  top: 0rpx;
+  position: absolute;
+}
+.arrow
+{
+  position: absolute;
+  right: 10rpx;
+  top: 2rpx;
+  z-index: 2;
+}
+.jubenview
+{
+  width: 600rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.jbitem
+{
+  padding: 0 15rpx;
+  height: 28rpx;
+  display: flex;
+  align-items: center;
+  font-size: 10rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  position: relative;
+  margin-right: 10rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+}
+.addjbitem
+{
+  cursor: pointer;
+}
+.dele
+{
+  position: absolute;
+  right: 2rpx;
+  top: 2rpx;
+  cursor: pointer;
+}
+
+.formitem1
+{
+  display: flex;
+  font-size: 11rpx;
+  margin-top: 14rpx;
+}
+.addjb
+{
+  width: 10rpx;
+  height: 10rpx;
+}
+
+
+
+.jubenpicker
+{
+  width: 160rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding-left: 10rpx;
+  border-radius: 6rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.jbpicker
+{
+  width: 160rpx;
+  height: 28rpx;
+  color: #333333;
+  z-index: 16;
+  position: absolute;
+  left: 0;
+  top: 0rpx;
+  border:none !important;
+}
+.jbpicker1
+{
+  width: 160rpx;
+  height: 28rpx;
+  color: #999999;
+  z-index: 16;
+  left: 10rpx;
+  top: 0rpx;
+  position: absolute;
+}
+.popview
+{
+  width: 600rpx;
+  background-color: #ffffff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  position: relative;
+  padding-top: 14rpx;
+  max-height: 450rpx;
+}
+.popsearch
+{
+  display: flex;
+  align-items: center;
+}
+.popsearch input
+{
+  border: 1rpx solid #dedede;
+  border-radius: 4rpx;
+  padding-left: 10rpx;
+  width: 160rpx;
+  box-sizing: border-box;
+  height: 28rpx;
+}
+.poptitle
+{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.popclose
+{
+  position: absolute;
+  right: 20rpx;
+  top: 14rpx;
+  cursor: pointer;
+}
+.searchbtn
+{
+  width: 50rpx;
+  height: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 5rpx;
+  cursor: pointer;
+}
+.searchbtn text
+{
+  margin-left: 5rpx;
+  cursor: pointer;
+}
+.scrollview
+{
+  height: 300rpx;
+  margin-top: 10rpx;
+}
+.poptable
+{
+  margin-top: 10rpx;
+  border-left: 1rpx solid #dedede;
+  border-right: 1rpx solid #dedede;
+  border-top: 1rpx solid #dedede;
+  border-radius: 5rpx;
+}
+.tableheader
+{
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.tablename
+{
+  text-align: center;
+  height: 100%;
+  line-height: 28rpx;
+}
+.tablevalue
+{
+  text-align: center;
+  height: 100%;
+  line-height: 28rpx;
+}
+.tablevalue image
+{
+  width: 15rpx;
+  height: 15rpx;
+  margin: 7rpx auto;
+  cursor: pointer;
+}
+.normal
+{
+  width: 100rpx;
+}
+.big
+{
+  width: 360rpx;
+}
+
+.popbtn
+{
+  width: 120rpx;
+  height: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  font-size: 10rpx;
+  color: #ffffff;
+  border-radius: 14rpx;
+  margin: 20rpx auto;
+  margin-bottom: 10rpx;
+  cursor: pointer;
+}
+.popselect
+{
+  margin-top: 10rpx;
+}
+
+.nojb
+{
+  margin: 1rpx auto;
+  text-align: center;
+}
+.nojb text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pageview
+{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pre,.next
+{
+  width: 60rpx;
+  height: 30rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #f6f6f6 ;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 12rpx;
+  cursor: pointer;
+}
+.pagenum
+{
+  font-size: 12rpx;
+  color: #333333;
+  margin: 0 50rpx;
+}
+.pagenum text
+{
+  font-weight: 500;
+  font-size: 14rpx;
+}
+
+.confirmbtn
+{
+  width: 200rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  font-size: 11rpx;
+  color: #ffffff;
+  margin: 10rpx auto;
+  cursor: pointer;
+}
+.verbody
+{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-bottom: 30rpx;
+}
+.vercon
+{
+  padding: 30rpx;
+  box-sizing: border-box;
+  padding-bottom: 0;
+}
+.vercon input
+{
+  width: 100%;
+  border: 1rpx solid #dedede;
+  height: 70rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+.verradio
+{
+  /* transform:scale(0.5); */
+  margin-right: 40rpx !important;
+  font-size: 26rpx !important;
+}
+.verimgpicker
+{
+  width: 200rpx;
+}
+
+.verfendian
+{
+  width: 690rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+}
+.verpicker,.verpicker1
+{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  margin-top: 0 !important;
+}
+.verjubenview
+{
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.verjbitem
+{
+  height: 54rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  min-width: 156rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10rpx;
+  padding: 0 10rpx;
+}
+.veraddjb
+{
+  width: 30rpx;
+  height: 30rpx;
+}
+.verconfirmbtn
+{
+  width: 600rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  border-radius: 35rpx;
+}
+
+.verpopview
+{
+  width: 600rpx;
+  background-color: #ffffff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  position: relative;
+  padding-top: 14rpx;
+}
+.verpopsearch input
+{
+  width: 430rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+.verjubenpicker
+{
+  width: 430rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+}
+.verjubenpicker .jbpicker
+{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.verjubenpicker .jbpicker1
+{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.versearchbtn
+{
+  width: 500rpx;
+  margin: 20rpx auto;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+}
+
+.vertableheader
+{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.vertableheader .tablename
+{
+  line-height: 60rpx;
+}
+.vertableheader .tablevalue
+{
+  line-height: 60rpx;
+}
+.verscrollview
+{
+  height: 500rpx;
+  margin-top: 10rpx;
+}
+.vertablevalue image
+{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 15rpx;
+}
+.verpopbtn
+{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+.disable
+{
+  opacity: 0.5;
+}

@@ -1,0 +1,126 @@
+<!--pages/user/detail.wxml-->
+<wxs src="../../utils/tool.wxs" module="tool"></wxs>
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="userinfo">
+  <view class="title">
+    <view class="titleline bgcolor"></view>
+    <view>会员信息</view>
+  </view>
+  <view class="userbody">
+    <view class="left">
+      <view class="useritem">
+        <view class="useritem_title">会员头像:</view>
+        <image src="{{detail.avatar}}"></image>
+      </view>
+      <view class="useritem">
+        <view class="useritem_title">会员等级:</view>
+        <view class="useritem_con b-b">会员</view>
+      </view>
+      <view class="useritem">
+        <view class="useritem_title">会员余额:</view>
+        <view class="useritem_con b-b">{{wallet || 0}}元</view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="useritem">
+        <view class="useritem_title hasw">会员名称:</view>
+        <view class="useritem_con b-b">{{detail.name}}</view>
+      </view>
+      <view class="useritem">
+        <view class="useritem_title hasw">会员id:</view>
+        <view class="useritem_con b-b">{{detail.id}}</view>
+      </view>
+      <view class="useritem">
+        <view class="useritem_title hasw">手机号:</view>
+        <view class="useritem_con b-b">{{detail.phone || ''}}</view>
+      </view>
+      <view class="useritem">
+        <view class="useritem_title hasw">加入会员时间:</view>
+        <view class="useritem_con b-b">{{tool.substr(detail.createTime,10)}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="userinfo">
+  <view class="title">
+    <view class="titleline bgcolor"></view>
+    <view>会员消费记录</view>
+  </view>
+  <view class="tableview">
+    <view class="tableheader f-12">
+      <view class="tableheader_name b-r">时间</view>
+      <view class="tableheader_name b-r">剧本名称</view>
+      <view class="tableheader_name b-r">支付方式</view>
+      <view class="tableheader_name b-r">付款金额</view>
+    </view>
+    <view class="list">
+      <block wx:for="{{array}}" wx:key='item'>
+        <navigator url="../user/detail" hover-class="none">
+        <view class="tableheader {{index%2==0?'whitebg':''}} f-14">
+          <view class="tableheader_value b-r">{{tool.substr(item.createTime)}}</view>
+          <view class="tableheader_value b-r">{{item.dramaName || ''}}</view>
+          <view class="tableheader_value b-r">卡内扣除</view>
+          <view class="tableheader_value b-r">￥{{item.realPay}}</view>
+        </view>
+        </navigator>
+      </block>
+    </view>
+    
+  </view>
+  <view class="pageview" wx:if="{{array.length>0}}">
+    <view class="pre" bindtap="gopre">上一页</view>
+    <view class="pagenum"><text>{{page}}</text>/{{total}}</view>
+    <view class="next" bindtap="gonext">下一页</view>
+  </view>
+
+  <view class="nodata f-11" wx:if="{{array.length==0}}">暂无消费记录~</view>
+</view>
+
+<blockmenu />
+</block>
+
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="topline"></view>
+  <view class="verbody">
+    <view class="vbbtitle">
+      <view class="vbbtitleline bgcolor"></view>
+      <view>会员信息</view>
+    </view>
+    <view class="verinfoitem">会员名称：{{detail.name}}</view>
+    <view class="verinfoitem">会员id：{{detail.id}}</view>
+    <view class="verinfoitem">会员头像：<image src="{{detail.avatar}}" mode="aspectFill"></image></view>
+    <view class="verinfoitem">手机号：{{detail.phone || ''}}</view>
+    <view class="verinfoitem">首次加入会员时间：{{tool.substr(detail.createTime,10)}}</view>
+    <view class="verinfoitem">会员等级：会员</view>
+    <view class="verinfoitem">会员卡余额：{{detail.wallet || 0}}元</view>
+  </view>
+
+  <view class="verbody m-t-20">
+    <view class="vbbtitle">
+      <view class="vbbtitleline bgcolor"></view>
+      <view>会员消费记录</view>
+    </view>
+    <view class="tableview vertableview">
+    <view class="tableheader f-20">
+      <view class="tableheader_name b-r">时间</view>
+      <view class="tableheader_name b-r">剧本名称</view>
+      <view class="tableheader_name b-r">支付方式</view>
+      <view class="tableheader_name b-r">付款金额</view>
+    </view>
+    <view class="list">
+      <block wx:for="{{array}}" wx:key='item'>
+        <navigator url="../user/detail" hover-class="none">
+        <view class="tableheader {{index%2==0?'whitebg':''}} f-20">
+          <view class="tableheader_value b-r">{{tool.substr(item.createTime)}}</view>
+          <view class="tableheader_value b-r">{{item.dramaName || ''}}</view>
+          <view class="tableheader_value b-r">卡内扣除</view>
+          <view class="tableheader_value b-r">￥{{item.realPay}}</view>
+        </view>
+        </navigator>
+      </block>
+    </view>
+    
+  </view>
+  </view>
+</block>

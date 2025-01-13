@@ -1,0 +1,20 @@
+
+
+package com.px.pa.modulars.upms.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.px.pa.modulars.upms.entity.SysRoleMenu;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ * 角色菜单表 Mapper 接口
+ * </p>
+ *
+ *
+ * 
+ */
+@Mapper
+public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {
+
+}

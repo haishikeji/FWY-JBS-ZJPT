@@ -1,0 +1,180 @@
+.index{
+	color: #fff;
+	min-height: 100%;
+	.index-top{
+		padding: 0 30rpx;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 2rpx solid #56525E;
+		.top-one{
+			width: 108rpx;
+			font-size: 28rpx;
+			height: 130rpx;
+			line-height: 130rpx;
+			text-align: center;
+			color: #9f9f9f;
+			&.active{
+				color: #FFF29A;
+				border-bottom: 4rpx solid #FFF29A;
+			}
+		}
+	}
+	.index-content{
+		padding: 40rpx;
+		.content-one{
+			position: relative;
+			width: 670rpx;
+			height: 316rpx;
+			background: #3d3943;
+			border-radius: 20rpx;
+			padding: 30rpx;
+			display: flex;
+			margin-bottom: 40rpx;
+			.one-left{
+				width: 180rpx;
+				height: 256rpx;
+				margin-right: 30rpx;
+				image{
+					width: 180rpx;
+					height: 256rpx;
+					border-radius: 20rpx;
+				}
+			}
+			.one-right{
+				width: 400rpx;
+				.rght-title{
+					font-size: 32rpx;
+					font-weight: 400;
+					color: #ffffff;
+					margin-bottom: 50rpx;
+				}
+				.right-team{
+					display: flex;
+					align-items: center;
+					margin-bottom: 14rpx;
+					height: 40rpx;
+					.team-img{
+						width: 40rpx;
+						height: 40rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin-right: 8rpx;
+						image{
+							width: 25rpx;
+							height: 25rpx;
+						}
+					}
+					.team-text{
+						font-size: 24rpx;
+						color: #FFF29A;
+						margin-right: 6rpx;
+					}
+					.team-num{
+						font-size: 24rpx;
+						color: #FFF29A;
+					}
+				}
+				.right-time{
+					margin-bottom: 40rpx;
+					display: flex;
+					align-items: center;
+					height: 40rpx;
+					.time-img{
+						width: 40rpx;
+						height: 40rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin-right: 8rpx;
+						image{
+							width: 25rpx;
+							height: 25rpx;
+						}
+					}
+					.time-text{
+						font-size: 24rpx;
+						color: #FFF29A;
+					}
+				}
+				.right-money{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					.money-num{
+						font-size: 40rpx;
+						color: #FFF29A;
+					}
+					.money-pay{
+						width: 120rpx;
+						height: 44rpx;
+						background: #827F86;
+						line-height: 44rpx;
+						text-align: center;
+						border-radius: 2rpx;
+						color: #fff;
+						&.active{
+							border-radius: 26rpx;
+							background: #FFF29A;
+							color: #3D3943;
+						}
+					}
+				}
+			}
+			.one-state{
+				position: absolute;
+				right: 0;
+				top: 0;
+				view{
+					width: 146rpx;
+					height: 40rpx;
+					font-size: 24rpx;
+					text-align: center;
+					line-height: 40rpx;
+					color: #fff;
+				border-top-right-radius: 20rpx;
+				}
+				
+			}
+		}
+		
+	}
+}
+.nodata{
+		margin-top: 100rpx;
+		text-align: center;
+		color: #fff;
+		image{
+			width: 710rpx;
+			height: 460rpx;
+		}
+}
+
+.light-index{
+	background: #fff !important;
+}
+.light-index-top{
+	border-bottom: 1rpx solid #dedede !important;
+}
+.light-top-one{
+	color: #333 !important;
+	&.active{
+		color: #ff9d66 !important;
+		border-bottom: 4rpx solid #ff9d66 !important;
+	}
+}
+.light-content-one{
+	background: #fff !important;
+	box-shadow: 0rpx 0rpx 12rpx 0rpx rgba(0,0,0,0.10) !important; 	
+}
+.light-rght-title{
+	color: #333 !important;
+}
+.light-team-text{
+	color: #FF9D66 !important;
+}
+.light-one-state{
+	color: #fff !important;
+	background: url(https://pic.hlt.hnpinxun.cn/jubensha/team_1l.png) !important;
+}

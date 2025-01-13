@@ -1,0 +1,168 @@
+<!--pages/home/index.wxml-->
+<wxs src="../../utils/tool.wxs" module="tool"></wxs>
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="body" wx:if="{{islogin}}">
+  <view class="top">
+    <view class="title">
+      <image src="{{shopinfo.image}}" mode="aspectFill"></image>
+      <view class="info">
+        <view class="info_name f-20">{{shopinfo.name}}</view>
+        <!-- <view class="info_time f-14">{{tool.substr(shopinfo.expired,10)}}到期</view> -->
+      </view>
+    </view>
+    <view class="yingye bgcolor">
+      <view class="item">
+        <image src="../../images/1.png"></image>
+        <view class="yy_info">
+          <view>今日营业额</view>
+          <view class="yy_num">{{shopinfo.todayTurnover || 0}}元</view>
+        </view>
+      </view>
+      <view class="yy_line"></view>
+      <view class="item">
+        <image src="../../images/2.png"></image>
+        <view class="yy_info">
+          <view>今日开本数</view>
+          <view class="yy_num">{{shopinfo.todaykbNum || 0}}场</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="menu">
+    <block wx:for="{{array}}" wx:key='item'>
+      <view class="mitem {{item.name.length==0?'lastone':''}}" bindtap="gopage" data-link="{{item.link}}" >
+        <view>{{item.name}}</view>
+        <image src="{{item.url}}" mode="aspectFit"></image>
+      </view>
+    </block>
+  </view>
+
+</view>
+<!-- <blockmenu /> -->
+
+<view class="login"  wx:if="{{!islogin}}" style="height:{{sysh}}px">
+  <image src="../../images/logo.png" mode="aspectFit" class="loginlogo"></image>
+  <view class="m-b-20">欢迎登录迷局</view>
+  <view class="loginitem d-flex b-b f-11">
+    <l-icon name="user" size="12" color="#333333"/>
+    <input type="text" placeholder="请输入用户名" bindinput="getaccount"/>
+  </view>
+  <view class="loginitem d-flex b-b f-11">
+    <l-icon name="password" size="12" color="#333333"/>
+    <input type="text" placeholder="请输入密码" bindinput="getpassword"/>
+  </view>
+  <view class="loginbtn bgcolor" bindtap="gologin">登录</view>
+</view>
+
+<l-popup show="{{popshow}}">
+  <view class="popview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="14"/>
+    </view>
+    
+    <view class="poptitle f-12">二维码</view>
+    <image src="{{codeimg}}" class="codeimage m-t-20" mode="aspectFit"></image>
+    <view class="popbtn bgcolor f-11" bindtap="savePosterPath">保存</view>
+  </view>
+</l-popup>
+
+<l-popup show="{{editpopshow}}">
+  <view class="editpopview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="14"/>
+    </view>
+    
+    <view class="poptitle f-12">修改登录密码</view>
+    <view class="editbox d-flex f-11 m-t-20">
+      <view>登录账号：{{logincode}}</view>
+    </view>
+    <view class="editbox d-flex f-11 m-t-10">
+      <view>原密码：</view>
+      <input type="password" placeholder="请输入原密码" bindinput="getypsd"/>
+    </view>
+    <view class="editbox d-flex f-11 m-t-10">
+      <view>新密码：</view>
+      <input type="password" placeholder="请输入新密码" bindinput="getnpsd"/>
+    </view>
+    <view class="f-8 edittip">*最少需要6位字符，建议使用字符+数字的密码组合</view>
+    <view class="editbox d-flex f-11 m-t-10">
+      <view>确认密码：</view>
+      <input type="password" placeholder="请输入确认密码" bindinput="getrpsd"/>
+    </view>
+    <view class="popbtn bgcolor f-11" bindtap="savePassword">保存</view>
+
+  </view>
+</l-popup>
+</block>
+
+<!-- 竖屏 -->
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="topline"></view>
+  <view class="body1" wx:if="{{islogin}}">
+  <view class="top">
+    <view class="title vertitle">
+      <image src="{{shopinfo.image}}" mode="aspectFill"></image>
+      <view class="info">
+        <view class="info_name f-30">{{shopinfo.name}}</view>
+        <!-- <view class="info_time f-24">{{tool.substr(shopinfo.expired,10)}}到期</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="yingye veryingye bgcolor">
+      <view class="item">
+        <image src="../../images/1.png"></image>
+        <view class="yy_info">
+          <view>今日营业额</view>
+          <view class="yy_num">{{shopinfo.todayTurnover || 0}}元</view>
+        </view>
+      </view>
+      <view class="yy_line"></view>
+
+      <view class="item">
+        <image src="../../images/2.png"></image>
+        <view class="yy_info">
+          <view>今日开本数</view>
+          <view class="yy_num">{{shopinfo.todaykbNum || 0}}场</view>
+        </view>
+      </view>
+    </view>
+
+  <view class="menu">
+    <block wx:for="{{array}}" wx:key='item'>
+      <view class="mitem vermitem {{item.name.length==0?'lastone':''}}" bindtap="gopage" data-link="{{item.link}}">
+        <image src="{{item.url}}" mode="aspectFit"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+
+</view>
+
+<view class="login"  wx:if="{{!islogin}}" style="height:{{sysh}}px">
+  <image src="../../images/logo.png" mode="aspectFit" class="verloginlogo"></image>
+  <view class="m-b-20 f-30">欢迎登录迷局</view>
+  <view class="loginitem d-flex b-b verloginitem f-26">
+    <l-icon name="user" size="26" color="#333333"/>
+    <input type="text" placeholder="请输入用户名" bindinput="getaccount"/>
+  </view>
+  <view class="loginitem d-flex b-b verloginitem f-26">
+    <l-icon name="password" size="26" color="#333333"/>
+    <input type="text" placeholder="请输入密码" bindinput="getpassword"/>
+  </view>
+  <view class="loginbtn bgcolor verloginbtn" bindtap="gologin">登录</view>
+</view>
+
+<l-popup show="{{popshow}}">
+  <view class="popview verpopview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="26"/>
+    </view>
+    
+    <view class="poptitle f-30 verpoptitle">二维码</view>
+    <image src="{{codeimg}}" class="vercodeimage m-t-20" mode="aspectFit"></image>
+    <view class="popbtn bgcolor f-28 verpopbtn" bindtap="savePosterPath">保存</view>
+  </view>
+</l-popup>
+</block>

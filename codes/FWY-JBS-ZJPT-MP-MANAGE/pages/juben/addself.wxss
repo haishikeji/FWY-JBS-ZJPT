@@ -1,0 +1,396 @@
+/* pages/juben/addself.wxss */
+.body
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.formitem
+{
+  display: flex;
+  align-items: center;
+  font-size: 11rpx;
+  margin-top: 14rpx;
+}
+.formitem input
+{
+  width: 260rpx;
+  height: 28rpx;
+  font-size: 10rpx;
+  border: 1rpx solid #dedede;
+  padding-left: 10rpx;
+  border-radius: 4rpx;
+}
+.numinput
+{
+  width: 120rpx !important;
+}
+.addlogo
+{
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 5rpx;
+}
+.formitem textarea
+{
+  resize: none;
+  width: 260rpx;
+  height: 100rpx;
+  padding: 6rpx;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+}
+.nocenter
+{
+  align-items: flex-start;
+}
+
+.popview
+{
+  width: 365rpx;
+  height: 100vh;
+  background-color: #ffffff;
+  border-top: 1rpx solid #f6f6f6;
+  position: relative;
+  padding: 20rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.popclose
+{
+  position: absolute;
+  z-index: 5;
+  right: 20rpx;
+  top: 20rpx;
+}
+.popcon
+{
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: normal;
+}
+.catetag
+{
+  min-width: 70rpx;
+  padding: 0 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 6rpx;
+  border-radius: 5rpx;
+}
+.popscroll
+{
+  white-space: nowrap;
+  height: 420rpx;
+}
+.tagactive
+{
+  background-color: #1D4ABD;
+  color: #ffffff;
+}
+.popbtn
+{
+  margin:10rpx auto;
+  width: 150rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 15rpx;
+}
+
+.koubei
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kb-left
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kb-left-score
+{
+  color: #F36737;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.kb-left-num
+{
+  color: #999999;
+  margin-top: 5rpx;
+}
+
+.proview
+{
+  display: flex;
+  align-items: center;
+  color: #666666;
+  margin: 8rpx 0;
+}
+.probg
+{
+  width: 120rpx;
+  margin: 0 6rpx;
+}
+.sub,.add
+{
+  width: 15rpx;
+  height: 15rpx;
+  line-height: 15rpx;
+  text-align: center;
+  border-radius: 7.5rpx;
+  cursor: pointer;
+}
+.sub
+{
+  margin-right: 4rpx;
+}
+.add
+{
+  margin-left: 4rpx;
+}
+.scount
+{
+  width: 30rpx;
+  text-align: center;
+  font-size: 8rpx !important;
+}
+.imgpicker
+{
+  width:70rpx;
+  height: 70rpx;
+}
+.arrow
+{
+  margin-left: -20rpx;
+}
+
+.roleview
+{
+  background-color: #ffffff;
+  width: 360rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  padding-bottom: 20rpx;
+  position: relative;
+  border-radius: 20rpx;
+}
+.roletitle
+{
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+.roleitem
+{
+  display: flex;
+  align-items: center;
+}
+.roleitem input
+{
+  width: 200rpx;
+  height: 28rpx;
+  font-size: 10rpx;
+  border: 1rpx solid #dedede;
+  padding-left: 10rpx;
+  border-radius: 4rpx;
+  z-index: 5;
+}
+.imgview
+{
+  display: flex;
+  flex-wrap: wrap;
+  width: 610rpx;
+}
+.rolebtn
+{
+  width: 200rpx;
+  height: 30rpx;
+  border-radius: 15rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #ffffff;
+  margin: 10rpx auto;
+}
+.imgview-item
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.icondel
+{
+  position: absolute;
+  top: -5rpx;
+  right: -5rpx;
+}
+.imgview-item image
+{
+  width: 80rpx;
+  height: 120rpx;
+  margin-bottom: 6rpx;
+  background-color: #f6f6f6;
+}
+.imgview-item1
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.confirmbtn
+{
+  width: 200rpx;
+  height: 30rpx;
+  color: #ffffff;
+  border-radius: 15rpx;
+  margin:10rpx auto;
+  line-height: 30rpx;
+  text-align: center;
+}
+.unit
+{
+  color: #999999;
+}
+
+
+
+.verformitem
+{
+  font-size: 26rpx;
+}
+.verformitem input
+{
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 510rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+.verformitem textarea
+{
+  width: 510rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  padding: 15rpx;
+}
+.vernuminput
+{
+  width: 160rpx !important;
+}
+.verprobg
+{
+  width: 200rpx;
+}
+.versub , .veradd
+{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 14rpx;
+  line-height: 32rpx;
+  font-size: 26rpx;
+}
+.verscount
+{
+  font-size: 16rpx !important;
+  width: 50rpx;
+}
+.verarrow
+{
+  margin-left: -40rpx;
+}
+.verimgview
+{
+  width: 520rpx;
+}
+.veraddlogo
+{
+  width: 160rpx;
+  height: 160rpx;
+}
+.verkb-left
+{
+  height: 200rpx;
+}
+.verconfirmbtn
+{
+  width: 300rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 35rpx;
+  margin-top: 30rpx;
+}
+.verroleview
+{
+  width: 600rpx;
+}
+.verroletitle
+{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.verroleitem input
+{
+  width: 400rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+.verrolebtn
+{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+}
+.verimgview-item image
+{
+  width: 160rpx;
+  height: 200rpx;
+  margin-bottom: 15rpx;
+}
+.verpopview
+{
+  height: 900rpx;
+  width: 100%;
+}
+.vercatetag
+{
+  height: 70rpx;
+  line-height: 70rpx;
+  min-width: 156rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+}
+.verpopscroll
+{
+  height: 700rpx;
+  margin-top: 30rpx;
+}
+.verpopbtn
+{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 35rpx;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,205 @@
+<!--pages/juben/detail.wxml-->
+<wxs src="../../utils/tool.wxs" module="tool"></wxs>
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="jubeninfo">
+  <view class="bbtitle">
+    <view class="bbtitleline bgcolor"></view>
+    <view>剧本详情管理</view>
+  </view>
+  <view class="infoitem m-t-20">
+    <view>剧本名称：</view>
+    <input type="text" placeholder="请输入剧本名称" value="{{detail.name}}" disabled="true"/>
+    <view class="m-l-50">剧本定价：</view>
+    <input type="text" placeholder="请输入剧本定价" value="{{jubenprice}}" bindinput="getsprice"/>
+    <view class="unit">/人</view>
+  </view>
+  <view class="infoitem m-t-10">
+    <view>剧本人数：</view>
+    <input type="text" disabled="true" placeholder="请输入剧本人数" value="{{detail.male}}男{{detail.female}}女"/>
+    <view class="m-l-50">剧本类型：</view>
+    <input type="text" disabled="true" value="{{catestr}}"/>
+    <!-- <view class="jbcate" bindtap="showcatepop">
+      <view class="jbcatestr over1">{{catename}}</view>
+      <l-icon name="down" color="#666666" size="12" class="downarrow"/>
+    </view> -->
+  </view>
+  <view class="infoitem m-t-10">
+    <view>剧本权重：</view>
+    <input type="number" placeholder="请输入剧本权重" value="{{j_hot}}" bindinput="gethot"/>
+    <view class="unit f-9">(数字越大排序越靠前，不设置则默认排到最后；权重范围1~999)</view>
+  </view>
+
+</view>
+
+<view class="jubendesc">
+  <view class="jubenscore">
+    <view class="bbtitle m-b-10">
+      <view class="bbtitleline bgcolor"></view>
+      <view>剧本口碑</view>
+    </view>
+    <view class="koubei">
+      <view class="kb-left">
+        <view class="kb-left-title f-10">剧本口碑</view>
+        <view class="kb-left-score f-24">{{jscore}}</view>
+        <l-rate score="{{jscore/2}}" size="8" active-color="#F36737" inActive-color="#999999" item-gap='3'/>
+        <view class="kb-left-num f-10">{{evapeople}}人点评</view>
+      </view>
+      <view class="kb-right">
+        <block wx:for="{{scorelist}}" wx:key='item'>
+          <view class="proview f-9">
+            <view>{{item.score/2}}星</view>
+            <view class="probg"><l-progress percent="{{tool.divmethod(item.num,evapeople)}}" stroke-width='5' border-radius='2.5' active-color="#F36737"></l-progress></view>
+            <view class="sub b-a f-11" bindtap="scoresub" data-star="{{item.score}}">-</view>
+            <view class="scount f-9">{{item.num}}人</view>
+            <view class="add b-a f-11" bindtap="scoreadd" data-star="{{item.score}}">+</view>
+          </view>
+        </block>
+        
+        <!-- <view class="proview">
+          <view>4星</view>
+          <view class="probg"><l-progress percent="60" stroke-width='5' border-radius='2.5' active-color="#F36737"></l-progress></view>
+          <view class="sub b-a">-</view>
+          <view class="scount">20人</view>
+          <view class="add b-a">+</view>
+        </view>
+        <view class="proview">
+          <view>3星</view>
+          <view class="probg"><l-progress percent="30" stroke-width='5' border-radius='2.5' active-color="#F36737"></l-progress></view>
+          <view class="sub b-a">-</view>
+          <view class="scount">20人</view>
+          <view class="add b-a">+</view>
+        </view>
+        <view class="proview">
+          <view>2星</view>
+          <view class="probg"><l-progress percent="20" stroke-width='5' border-radius='2.5' active-color="#F36737"></l-progress></view>
+          <view class="sub b-a">-</view>
+          <view class="scount">20人</view>
+          <view class="add b-a">+</view>
+        </view>
+        <view class="proview">
+          <view>1星</view>
+          <view class="probg"><l-progress percent="10" stroke-width='5' border-radius='2.5' active-color="#F36737"></l-progress></view>
+          <view class="sub b-a">-</view>
+          <view class="scount">20人</view>
+          <view class="add b-a">+</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class="jubencon">
+    <view class="bbtitle">
+      <view class="bbtitleline bgcolor"></view>
+      <view>剧本简介</view>
+    </view>
+    <view class="jubencontent m-b-10">
+      <rich-text nodes="{{detail.detail}}"></rich-text>
+    </view>
+  </view>
+</view>
+
+<view class="roleview">
+  <view class="bbtitle m-b-10">
+    <view class="bbtitleline bgcolor"></view>
+    <view>剧本角色</view>
+  </view>
+  <view class="scroll">
+    <scroll-view scroll-x="true" class="rulescroll">
+      <block wx:for="{{rolearr}}" wx:key='item'>
+        <view class="roleitem">
+          <image src="{{item.image}}" mode="aspectFill"></image>
+          <view class="rulename">{{item.name}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+<view class="bomview bgcolor" bindtap="editprice">修改信息</view>
+
+
+<l-popup show="{{popshow}}" content-align="right">
+  <view class="popview b-t">
+
+    <view class="poptitle">剧本类型</view>
+    <scroll-view scroll-y="true" class="popscroll">
+      <view class="cateview">
+        <block wx:for="{{cates}}" wx:key='item'>
+          <view class="cateitem b-a {{item.flag==1?'active':''}}" bindtap="cateclick" data-index="{{index}}">{{item.name}}</view>
+        </block>
+      </view>
+      <view class="popbtn bgcolor" bindtap="popconfirm">确定</view>
+    </scroll-view>
+   
+  </view>
+</l-popup>
+
+</block>
+
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="vbbtitle">
+    <view class="vbbtitleline bgcolor"></view>
+    <view>剧本详情</view>
+  </view>
+  <view class="jubeninfo">
+    <view class="f-26">剧本名称：</view>
+    <input type="text" value="{{detail.name}}" disabled="true" class="b-a verinput m-t-10"/>
+    <view class="f-26 m-t-10">剧本定价：</view>
+    <input type="text" placeholder="请输入剧本定价" value="{{jubenprice}}" bindinput="getsprice" class="b-a verinput m-t-10"/>
+    <view class="f-26 m-t-10">剧本人数：</view>
+    <input type="text" value="{{detail.male}}男{{detail.female}}女" disabled="true" class="b-a verinput m-t-10"/>
+    <view class="f-26 m-t-10">剧本类型：</view>
+    <input type="text" value="{{catestr}}" disabled="true" class="b-a verinput m-t-10"/>
+    <view class="f-26 m-t-10">剧本权重：</view>
+    <input type="number" placeholder="请输入剧本权重" value="{{j_hot}}" bindinput="gethot" class="b-a verinput m-t-10"/>
+    <view class="unit f-22">(数字越大排序越靠前，不设置则默认排到最后；权重范围1~999)</view>
+  </view>
+
+  <view class="jubeninfo">
+    <view class="koubei">
+      <view class="kb-left">
+        <view class="kb-left-title f-30">剧本口碑</view>
+        <view class="kb-left-score f-56 m-t-20 m-b-10">{{jscore}}</view>
+        <l-rate score="{{jscore/2}}" size="20" active-color="#F36737" inActive-color="#999999" item-gap='3'/>
+        <view class="kb-left-num f-20">{{evapeople}}人点评</view>
+      </view>
+      <view class="kb-right">
+        <block wx:for="{{scorelist}}" wx:key='item'>
+          <view class="proview f-20">
+            <view class="m-r-10" style="width:32rpx">{{item.score/2}}星</view>
+            <view class="probg verprobg"><l-progress percent="{{tool.divmethod(item.num,evapeople)}}" stroke-width='12' border-radius='6' active-color="#F36737"></l-progress></view>
+            <view class="sub b-a versub m-l-10" bindtap="scoresub" data-star="{{item.score}}">-</view>
+            <view class="scount verscount">{{item.num}}人</view>
+            <view class="add b-a veradd" bindtap="scoreadd" data-star="{{item.score}}">+</view>
+          </view>
+        </block>
+      </view>  
+  </view>
+  </view>
+
+  <view class="vbbtitle">
+    <view class="vbbtitleline bgcolor"></view>
+    <view>剧本简介</view>
+  </view>
+  <view class="jubeninfo f-26">
+    <rich-text nodes="{{detail.detail}}"></rich-text>
+  </view>
+
+  <view class="vbbtitle">
+    <view class="vbbtitleline bgcolor"></view>
+    <view>剧本角色</view>
+  </view>
+
+  <view class="scroll verscroll">
+    <scroll-view scroll-x="true" class="rulescroll verrulescroll">
+      <block wx:for="{{rolearr}}" wx:key='item'>
+        <view class="roleitem verroleitem">
+          <image src="{{item.image}}" mode="aspectFill"></image>
+          <view class="rulename">{{item.name}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="bomview bgcolor verbomview" bindtap="editprice">修改信息</view>
+  <view style="height:50rpx"></view>
+</block>

@@ -1,0 +1,168 @@
+<!--pages/store/info.wxml-->
+
+<wxs src="../../utils/tool.wxs" module="tool"></wxs>
+
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="body">
+  <view class="bbtitle">
+    <view class="bbtitleline bgcolor"></view>
+    <view>首页配置</view>
+  </view>
+  <view class="banner f-11 d-flex-t">
+    <view>轮播图设置：</view>
+    <view class="imgpicker m-l-10">
+      <l-image-picker size='5' count='5' bind:linchange="onChangeTap" bind:linremove='onRemoveTap' urls='{{fileList}}'/>
+    </view>
+  </view>
+  <view class="pickertip f-8">(可上传多张，最多5张)</view>
+
+  <view class="banner f-11 d-flex-t m-t-20">
+    <view>小程序头像设置：</view>
+    <view class="imgpicker1 m-l-10">
+      <l-image-picker size='5' count='1' bind:linchange="onChangeTap1" bind:linremove='onRemoveTap1' urls='{{fileList1}}'/>
+    </view>
+  </view>
+  <view class="pickertip f-8">(小程序头像每月可修改2次，每年可修改5次)</view>
+
+
+  <view class="d-flex-t f-11 m-t-20">
+    <view>店铺联系方式：</view>
+    <view class="concat">
+      <input type="text" placeholder="请输入联系人名称" value="{{shopname}}" bindinput="getshopname"/>
+      <input type="text" placeholder="请输入联系人微信" value="{{shopwx}}" bindinput="getshopwx"/>
+    </view>
+  </view>
+  <view class="d-flex-t f-11 m-t-20">
+    <view>店铺地址设置：</view>
+    <view class="concat">
+      <!-- <input type="text" value="{{storeAddress}}" placeholder="请输入店铺地址" bindinput="getaddr" disabled="true"/> -->
+      <view>{{storeAddress}}</view>
+      <view class="chooseaddr b-a m-t-10 bgcolor verchooseaddr" bindtap="chooseloc">选择店铺地址</view>
+    </view>
+  </view>
+
+  <view class="btn bgcolor" bindtap="uploadbanner">
+    <image src="../../images/16.png"></image>
+    <text>提交</text>
+  </view>
+</view>
+
+
+<view class="body miniH">
+  <view class="bbtitle">
+    <view class="bbtitleline bgcolor"></view>
+    <view>店铺通知配置</view>
+  </view>
+  <view class="addview fontcolor {{(detail.records.length==0 && page==1)?'center':''}}" bindtap="addmessage"><text>新增店铺通知</text></view>
+  <view class="list" wx:if="{{detail.records.length>0}}">
+    <block wx:for="{{detail.records}}" wx:key='item'>
+      <view class="item b-b">
+        <view class="content">{{index+1}}、{{item.content}}</view>
+        <view class="time">
+          <view>{{tool.substr(item.createTime,10)}}</view>
+          <image src="../../images/17.png" bindtap="delcell" data-id="{{item.id}}"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="pageview" wx:if="{{detail.records.length>0}}">
+    <view class="pre" bindtap="gopre">上一页</view>
+    <view class="pagenum"><text>{{page}}</text>/{{detail.pages}}</view>
+    <view class="next" bindtap="gonext">下一页</view>
+  </view>
+</view>
+
+
+<l-popup show="{{popshow}}">
+  <view class="popview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="12"/>
+    </view>
+    
+    <view class="poptitle f-16">新增通知</view>
+    <view class="popcon b-a">
+      <textarea name="" id="" cols="30" rows="10" placeholder="请输入通知内容" bindinput="getcontent" value="{{noticecontent}}"></textarea>
+    </view>
+    <view class="popbtn bgcolor" bindtap="addconfirm">确认发布</view>
+  </view>
+</l-popup> 
+</block>
+
+
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="vbbtitle">
+    <view class="vbbtitleline bgcolor"></view>
+    <view>首页配置</view>
+  </view>
+  <view class="body verbody">
+    <view class="banner f-26">
+      <view>轮播图设置：</view>
+      <view class="imgpicker m-t-20">
+        <l-image-picker size='3' count='5' bind:linchange="onChangeTap" bind:linremove='onRemoveTap' urls='{{fileList}}'/>
+      </view>
+    </view>
+    <view class="pickertip f-20 verpickertip">(可上传多张，最多5张)</view>
+
+    <view class="banner f-26 m-t-20">
+      <view>小程序头像设置：</view>
+      <view class="imgpicker m-t-20">
+        <l-image-picker size='3' count='1' bind:linchange="onChangeTap1" bind:linremove='onRemoveTap1' urls='{{fileList1}}'/>
+      </view>
+    </view>
+    <view class="pickertip f-20 verpickertip">(小程序头像每月可修改2次，每年可修改5次)</view>
+
+    <view class="m-t-20 f-26">店铺联系方式：</view>
+    <view class="verconcat">
+      <input type="text" placeholder="请输入联系人名称" value="{{shopname}}" bindinput="getshopname"/>
+      <input type="text" placeholder="请输入联系人微信" value="{{shopwx}}" bindinput="getshopwx"/>
+    </view>
+
+
+    <view class="m-t-20 f-26">店铺地址设置：</view>
+    <view class="verconcat f-26">
+      <view>{{storeAddress}}</view>
+      <!-- <input type="text" value="{{storeAddress}}" placeholder="请输入店铺地址" bindinput="getaddr" disabled="true"/> -->
+      <view class="chooseaddr b-a m-t-10 bgcolor" bindtap="chooseloc">选择店铺地址</view>
+    </view>
+
+
+
+
+    <view class="btn bgcolor verbtn" bindtap="uploadbanner">
+      <image src="../../images/16.png"></image>
+      <text>提交</text>
+    </view>
+  </view>
+
+  <view class="verlist">
+    <view class="vbbtitle">
+      <view class="vbbtitleline bgcolor"></view>
+      <view>店铺通知设置</view>
+    </view>
+    <view class="veraddview fontcolor" bindtap="addmessage"><text>新增店铺通知</text></view>
+  </view>
+  <block wx:for="{{array}}" wx:key='item'>
+      <view class="vermsgitem">
+        <view class="vermsgitem-con f-26">{{item.content}}</view>
+        <view class="vermsgitem-bom f-20 b-t m-t-20">
+          <view>{{tool.substr(item.createTime,10)}}</view>
+          <view class="verdelebtn" bindtap="delcell" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </block>
+  
+    <l-popup show="{{popshow}}">
+      <view class="verpopview">
+        <view class="popclose" catchtap="closepop">
+          <l-icon name="close" color="#999999" size="24"/>
+        </view>
+        
+        <view class="poptitle f-30 m-t-10">新增通知</view>
+        <view class="popcon b-a verpopcon m-t-10">
+          <textarea name="" id="" placeholder="请输入通知内容" bindinput="getcontent" value="{{noticecontent}}"></textarea>
+        </view>
+        <view class="popbtn bgcolor verpopbtn" bindtap="addconfirm">确认发布</view>
+      </view>
+    </l-popup> 
+</block>

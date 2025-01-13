@@ -1,0 +1,244 @@
+<!--pages/store/add.wxml-->
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="body">
+  <view class="formitem">
+    <view>店员编号：</view>
+    <input type="text" placeholder="请输入店员编号" bindinput="getdramacode" value="{{d_code}}"/>
+  </view>
+  <view class="formitem">
+    <view>店员姓名：</view>
+    <input type="text" placeholder="请输入店员姓名" bindinput="getdramaname" value="{{d_name}}"/>
+  </view>
+  <view class="formitem">
+    <view>店员性别：</view>
+    <l-radio-group placement='row' bind:linchange='sexchange' current="{{d_sex}}">
+        <l-radio key="1" size="16rpx" l-class='radio'>男</l-radio>
+        <l-radio key="2" size="16rpx" l-class='radio'>女</l-radio>
+    </l-radio-group>
+
+  </view>
+  <view class="formitem">
+    <view>个性照片：</view>
+    <view class="imgpicker">
+     <l-image-picker size='1' count="1" bind:linchange="onChangeTap" urls="{{d_files}}"/>
+    </view>
+    <view class="uptip f-9">（建议尺寸为222*222px）</view>
+  </view>
+
+  <view class="formitem">
+    <view>联系方式：</view>
+    <input type="text" placeholder="请输入店员店员联系方式" bindinput="getdramaphone" value="{{d_phone}}"/>
+    <view class="uptip m-l-10">*此号码也用来登录小程序后台，需要设置为常用手机</view>
+  </view>
+  <view class="formitem">
+    <view>所属分店：</view>
+    <view class="fendian b-a" bindtap="showpicker">
+        <!-- <picker bindchange="bindPickerChange" value="{{shopindex}}" range="{{shoparr}}">
+          <view class="picker" wx:if="{{shopindex!=-1}}">
+            {{shoparr[shopindex]}}
+          </view>
+          <view class="picker1" wx:else>请选择所属分店</view>
+        </picker> -->
+        <input class="picker" placeholder="请选择所属分店" value="{{shoparr[shopindex]}}" disabled/>
+        <l-icon name="down" color="#333333" size="10" class="arrow"/>
+      </view>
+  </view>
+
+  <view class="formitem1">
+    <view class="m-t-10">可开剧本：</view>
+    <view class="jubenview">
+      <block wx:for="{{namearr}}" wx:key='item'>
+        <view class="jbitem b-a">
+          <view>{{item}}</view>
+          <l-icon name="error" color="#999999" size="12" class="dele" bindtap="delejuben" data-index="{{index}}"/>
+        </view>
+      </block>
+      <view class="jbitem b-a addjbitem" bindtap="addjuben">
+        <image src="../../images/add.png" class="addjb"></image>
+      </view>
+    </view>
+  </view>
+
+   <view class="confirmbtn bgcolor" bindtap="comfirmclick">确认提交</view>
+</view>
+
+<l-popup show="{{jbpopshow}}" locked='{{true}}'>
+  <view class="popview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="12"/>
+    </view>
+    <view class="poptitle f-11">剧本选择</view>
+    <view class="popsearch f-14">
+      <view>剧本名称：</view>
+      <input type="text" placeholder="请输剧本名称" bindinput="getname"/>
+      <view class="m-l-20">剧本类型：</view>
+      <view class="jubenpicker b-a f-10" bindtap="showpicker1">
+        <!-- <picker bindchange="bindPickerChange1" value="{{jubenindex}}" range="{{cates}}" range-key='name'>
+          <view class="jbpicker" wx:if="{{jubenindex!=-1}}">
+            {{cates[jubenindex].name}}
+          </view>
+          <view class="jbpicker1" wx:else>请选择剧本分类</view>
+        </picker> -->
+        <input class="jbpicker" placeholder="请选择剧本分类" value="{{cates[jubenindex].name}}" disabled/>
+        <l-icon name="down" color="#333333" size="10" class="arrow"/>
+      </view>
+      <view class="searchbtn m-l-10 bgcolor f-10" bindtap="gosearch">
+        <l-icon name="research" color="#ffffff" size="10"/>
+        <text>搜索</text>
+      </view>
+    </view>
+    <view class="popselect f-10">已选择剧本：<text class="f-13">{{selectarr.length}}</text>本</view>
+    <scroll-view scroll-y="true" class="scrollview">
+    <view class="poptable">
+      <view class="tableheader b-b">
+        <view class="tablename b-r normal"></view>
+        <view class="tablename b-r normal">剧本编号</view>
+        <view class="tablename big">剧本名称</view>
+      </view>
+      <block wx:for="{{jubenarr}}" wx:key='item'>
+        <view class="tableheader b-b">
+          <view class="tablevalue normal b-r">
+            <image src="{{item.flag==1?'../../images/box_s.png':'../../images/box.png'}}" bindtap="{{item.has==1?'':'selectClick'}}" data-id="{{item.id}}" data-name="{{item.dramaName}}" class="{{item.has==1?'disable':''}}"></image>
+          </view>
+          <view class="tablevalue normal b-r">{{item.id}}</view>
+          <view class="tablevalue big">{{item.dramaName}}</view>
+        </view>
+      </block>
+    </view>
+   
+
+    <view class="pageview">
+      <view class="pre" bindtap="gopre">上一页</view>
+      <view class="pagenum"><text>{{page}}</text>/{{total}}</view>
+      <view class="next" bindtap="gonext">下一页</view>
+    </view>
+    <view class="popbtn bgcolor" bindtap="confirmpop">保存</view>
+  <view class="nojb fontcolor f-9" bindtap="gopage"><text>没找到剧本？点击添加</text></view>
+
+  </scroll-view>
+
+  </view>
+</l-popup> 
+
+</block>
+
+
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="topline"></view>
+  <view class="verbody">
+    <view class="vercon">
+      <view class="f-26">店员编号:</view>
+      <input type="text" placeholder="请输入店员编号" value="{{d_code}}" bindinput="getdramacode"/>
+      <view class="f-26 m-t-10">店员姓名：</view>
+      <input type="text" placeholder="请输入店员姓名" value="{{d_name  }}" bindinput="getdramaname"/>
+      <view class="f-26 m-t-10 m-b-10">店员性别：</view>
+      <l-radio-group placement='row' bind:linchange='sexchange' current="{{d_sex}}">
+          <l-radio key="1" size="32rpx" l-class='verradio'>男</l-radio>
+          <l-radio key="2" size="32rpx" l-class='verradio'>女</l-radio>
+      </l-radio-group>
+      <view class="f-26 m-t-10">个性照片：</view>
+      <view class="formitem">
+        <view class="verimgpicker">
+        <l-image-picker size='1' count="1" bind:linchange="onChangeTap" urls="{{d_files}}"/>
+        </view>
+        <view class="uptip f-24">（建议尺寸为750*750rpx）</view>
+      </view>
+      <view class="f-26 m-t-10">联系方式：</view>
+      <input type="number" placeholder="请输入联系方式" value="{{d_phone}}" bindinput="getdramaphone"/>
+      <view class="uptip m-t-10 f-20">*此号码也用来登录小程序后台，需要设置为常用手机</view>
+      <view class="f-26 m-t-10">所属分店：</view>
+      
+      <view class="fendian b-a verfendian m-t-10" bindtap="showpicker">
+        <!-- <picker bindchange="bindPickerChange" value="{{shopindex}}" range="{{shoparr}}">
+          <view class="picker verpicker" wx:if="{{shopindex!=-1}}">
+            {{shoparr[shopindex]}}
+          </view>
+          <view class="picker1 verpicker1" wx:else>请选择所属分店</view>
+        </picker> -->
+        <input class="picker verpicker" placeholder="请选择所属分店" value="{{shoparr[shopindex]}}" disabled/>
+        <l-icon name="down" color="#333333" size="24" class="arrow"/>
+      </view>
+
+      <view class="f-26 m-t-20">可开剧本：</view>
+
+    </view>
+    <view class="verjubenview">
+      <block wx:for="{{namearr}}" wx:key='item'>
+        <view class="jbitem b-a verjbitem">
+          <view>{{item}}</view>
+          <l-icon name="error" color="#999999" size="24" class="dele" bindtap="delejuben" data-index="{{index}}"/>
+        </view>
+      </block>
+      <view class="jbitem b-a m-l-10 verjbitem" bindtap="addjuben">
+        <image src="../../images/add.png" class="veraddjb"></image>
+      </view>
+    </view>
+    <view class="confirmbtn bgcolor verconfirmbtn" bindtap="comfirmclick">确认提交</view>
+
+  </view>
+
+
+  <l-popup show="{{jbpopshow}}" locked='{{true}}'>
+  <view class="verpopview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="24"/>
+    </view>
+    <view class="poptitle">剧本选择</view>
+    <view class="popsearch f-26 verpopsearch">
+      <view>剧本名称：</view>
+      <input type="text" placeholder="请输剧本名称" bindinput="getname"/>
+    </view>
+    <view class="popsearch f-26">
+      <view class="">剧本类型：</view>
+      <view class="jubenpicker b-a verjubenpicker m-t-10 f-26" bindtap="showpicker1">
+        <!-- <picker bindchange="bindPickerChange1" value="{{jubenindex}}" range="{{cates}}" range-key='name'>
+          <view class="jbpicker" wx:if="{{jubenindex!=-1}}">
+            {{cates[jubenindex].name}}
+          </view>
+          <view class="jbpicker1" wx:else>请选择剧本分类</view>
+        </picker> -->
+        <input class="jbpicker" placeholder="请选择剧本分类" value="{{cates[jubenindex].name}}" disabled/>
+        <l-icon name="down" color="#333333" size="24" class="arrow"/>
+      </view>
+    </view>
+    <view class="searchbtn m-l-10 bgcolor versearchbtn" bindtap="gosearch">
+        <l-icon name="research" color="#ffffff" size="24"/>
+        <text class="m-l-10">搜索</text>
+      </view>
+    <view class="popselect f-22">已选择剧本：<text class="f-24">{{selectarr.length}}</text>本</view>
+    <scroll-view scroll-y="true" class="verscrollview" bindscrolltolower='getmore'>
+    <view class="poptable">
+      <view class="tableheader b-b f-22 vertableheader">
+        <view class="tablename b-r normal"></view>
+        <view class="tablename b-r normal">剧本编号</view>
+        <view class="tablename big">剧本名称</view>
+      </view>
+      <block wx:for="{{jubenarr}}" wx:key='item'>
+        <view class="tableheader b-b f-22 vertableheader">
+          <view class="tablevalue normal b-r vertablevalue">
+            <image src="{{item.flag==1?'../../images/box_s.png':'../../images/box.png'}}" bindtap="{{item.has==1?'':'selectClick'}}" data-id="{{item.id}}" data-name="{{item.dramaName}}" class="{{item.has==1?'disable':''}}"></image>
+          </view>
+          <view class="tablevalue normal b-r">{{item.id}}</view>
+          <view class="tablevalue big">{{item.dramaName}}</view>
+        </view>
+      </block>
+    </view>
+   
+
+    
+  </scroll-view>
+  <view class="popbtn bgcolor verpopbtn" bindtap="confirmpop">保存</view>
+    <view class="nojb fontcolor f-24" bindtap="gopage"><text>没找到剧本？点击添加</text></view>
+  </view>
+</l-popup> 
+
+
+</block>
+
+<l-popup show="{{poppickershow}}" content-align="bottom">
+  <van-picker show-toolbar columns="{{ shoparr }}" bind:confirm="pickonChange"  bind:cancel="onCancel"/>
+</l-popup>
+
+<l-popup show="{{poppickershow1}}" content-align="bottom">
+  <van-picker show-toolbar columns="{{ cates }}" bind:confirm="pickonChange1"  bind:cancel="onCancel" value-key="name"/>
+</l-popup>

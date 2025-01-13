@@ -1,0 +1,381 @@
+/* pages/recharge/index.wxss */
+.topview
+{
+  margin:20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.title
+{
+  display: flex;
+  align-items: center;
+  font-size: 16rpx;
+  margin-bottom: 10rpx;
+}
+.titleline
+{
+  width: 4rpx;
+  height: 15rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+}
+.vipitem
+{
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  height: 40rpx;
+} 
+.vipitem-name
+{
+  width: 160rpx;
+  text-align: right;
+}
+.vipitem input
+{
+  padding-left: 10rpx;
+  border:2rpx solid #f6f6f6;
+  border-radius: 6rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  width: 200rpx;
+}
+
+.confirmbtn
+{
+  margin: 10rpx auto;
+  width: 150rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  border-radius: 14rpx;
+  text-align: center;
+  font-size: 11rpx;
+  color: #ffffff;
+  cursor: pointer;
+}
+.ruleview
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 200rpx;
+}
+.add
+{
+  position: absolute;
+  right: 40rpx;
+  top: 20rpx;
+  font-size: 16rpx;
+}
+.center
+{
+   top: 80rpx;
+   left: 310rpx;
+}
+.add text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.list
+{
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ruleitem
+{
+  width: 203.3rpx;
+  height: 160rpx;
+  border: 2rpx solid #f6f6f6;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  margin: 10rpx;
+}
+.rulecon
+{
+  display: flex;
+
+  color: #000000;
+  margin-top: 10rpx;
+}
+.ruledesc
+{
+
+  color: #333333;
+  width: 100rpx;
+}
+.ruledesc1
+{
+
+  color: #333333;
+  width: 122rpx;
+}
+.rulebtn
+{
+  width: 100rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #ffffff;
+  font-size: 12rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  cursor: pointer;
+}
+.delbtn
+{
+  width: 50rpx;
+  height: 30rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  line-height: 30rpx;
+  font-size: 12rpx;
+  background-color:#DC2E38;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+
+.pageview
+{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pre,.next
+{
+  width: 70rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #f6f6f6 ;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 16rpx;
+  cursor: pointer;
+}
+.pagenum
+{
+  font-size: 16rpx;
+  color: #333333;
+  margin: 0 50rpx;
+}
+.pagenum text
+{
+  font-weight: 500;
+  font-size: 18rpx;
+}
+
+.popview
+{
+  width: 350rpx;
+  height: 100vh;
+  background-color: #ffffff;
+  border-top: 1rpx solid #f6f6f6;
+  position: relative;
+  padding: 20rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.popclose
+{
+  position: absolute;
+  z-index: 5;
+  right: 20rpx;
+  top: 20rpx;
+}
+.popitem
+{
+  /* display: flex; */
+  align-items: center;
+  margin-top: 10rpx;
+}
+.popitem input
+{
+  padding-left: 10rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border: 1rpx solid #f6f6f6;
+  border-radius: 6rpx;
+  font-size: 10rpx;
+  width: 200rpx;
+}
+.popname
+{
+  margin-top: 20rpx;
+}
+.popleft
+{
+  margin-left: 20rpx;
+}
+.poptop
+{
+  margin-top: 20rpx;
+}
+.poptip
+{
+  width: 100%;
+  text-align: center;
+  color: #999999;
+}
+
+.popbtn
+{
+  position: absolute;
+  width: 120rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  font-size: 11rpx;
+  color: #ffffff;
+  border-radius: 16rpx;
+  left: 115rpx;
+  bottom: 30rpx;
+  cursor: pointer;
+}
+
+
+.vervipitem
+{
+  height: 72rpx;
+}
+.vervipitem input
+{
+  width: 360rpx;
+  height: 70rpx;
+}
+.verconfirmbtn
+{
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+}
+.veradd
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+.veradd text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.verlist
+{
+  margin: 20rpx;
+  width: 70rpx;
+}
+.verruleitem
+{
+  width: 710rpx;
+  height: 400rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.verrulecon
+{
+  display: block;
+  margin-top: 20rpx;
+}
+.verruledesc
+{
+  width: 100%;
+}
+.verbtn
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70rpx;
+}
+.verrulebtn
+{
+  width: 250rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+.verdelbtn
+{
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  width: 150rpx;
+}
+.verpopview
+{
+  width: 100%;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+  position: relative;
+}
+.verpopview input
+{
+  width: 690rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  box-sizing: border-box;
+}
+.verpopbtn
+{
+  margin: 30rpx auto;
+  width: 250rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+  text-align: center;
+}
+.listadd
+{
+  width: 710rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #999999;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+}
+.listadd image
+{
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}

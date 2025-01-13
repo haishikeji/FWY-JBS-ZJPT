@@ -1,0 +1,344 @@
+/* pages/store/info.wxss */
+.body
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.banner
+{
+  /* display: flex; */
+  width: 100%;
+}
+.imgpicker
+{
+  width: 580rpx;
+  /* margin-left: 10rpx; */
+}
+.imgpicker1
+{
+  width: 570rpx;
+}
+.pickertip
+{
+  color: #999999;
+  margin-left: 85rpx;
+  margin-top: 5rpx;
+}
+.btn
+{
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  height: 30rpx;
+  border-radius: 6rpx;
+  justify-content: center;
+  font-size: 11rpx;
+  color: #ffffff;
+  margin: 5rpx auto;
+  margin-top: 30rpx;
+  cursor: pointer;
+}
+.btn image
+{
+  width: 16rpx;
+  height: 16rpx;
+  margin-right: 5rpx;
+}
+
+.addview
+{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 11rpx;
+}
+.addview text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.list
+{
+  width: 100%;
+  margin-top: 10rpx;
+}
+.item
+{
+  width: 100%;
+  min-height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content
+{
+  font-size: 11rpx;
+  width: 550rpx;
+}
+.time
+{
+  font-size: 10rpx;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.time image
+{
+  width: 16rpx;
+  height: 16rpx;
+  margin-left: 20rpx;
+  cursor: pointer;
+}
+
+.pageview
+{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pre,.next
+{
+  width: 70rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #f6f6f6 ;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 16rpx;
+  cursor: pointer;
+}
+.pagenum
+{
+  font-size: 16rpx;
+  color: #333333;
+  margin: 0 50rpx;
+}
+.pagenum text
+{
+  font-weight: 500;
+  font-size: 18rpx;
+}
+
+.popview
+{
+  width: 300rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  position: relative;
+  padding-bottom: 10rpx;
+}
+
+.popclose
+{
+  position: absolute;
+  right: 20rpx;
+  top: 16rpx;
+  cursor: pointer;
+}
+.poptitle
+{
+  width: 100%;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-bottom: 2rpx solid rgba(222, 222, 22
+  2, 0.5);
+}
+
+.popcon
+{
+  margin-left: 10rpx;
+  width: 280rpx;
+  height: 130rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.popcon textarea
+{
+  font-size: 12rpx;
+  resize: none;
+  width: 260rpx;
+  height: 110rpx;
+}
+.popbtn
+{
+  width: 150rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  line-height: 32rpx;
+  text-align: center;
+  font-size: 12rpx;
+  color: #ffffff;
+  margin: 10rpx auto;
+  margin-top: 30rpx;
+  cursor: pointer;
+}
+
+.center
+{
+   top: 80rpx;
+   left: 310rpx;
+}
+.miniH
+{
+  min-height: 200rpx;
+}
+
+.d-flex-t
+{
+  display: flex;
+}
+.concat input
+{
+  width: 400rpx;
+  height: 30rpx;
+  border: 1rpx solid #dedede;
+  margin-bottom: 10rpx;
+  border-radius: 5rpx;
+  padding-left: 10rpx;
+}
+.chooseaddr
+{
+  height: 40rpx;
+  border-radius: 5rpx;
+  width: 180rpx;
+  color: #ffffff;
+  border-radius: 20rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+
+.verbody
+{
+  padding: 30rpx;
+  margin-bottom: 0;
+}
+.verpickertip
+{
+  margin-left: 0;
+}
+.verbtn
+{
+  width: 250rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+.verbtn image
+{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.verlist
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.veraddview
+{
+  font-size: 24rpx;
+}
+.veraddview text
+{
+  text-decoration: underline;
+}
+.vermsgitem
+{
+  margin-left: 20rpx;
+  width: 710rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+}
+.vermsgitem-bom
+{
+  color: #999999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70rpx;
+}
+.verdelebtn
+{
+  width: 80rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background-color: #f6f6f6;
+  border-radius: 22rpx;
+}
+.verpopview
+{
+  width: 600rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  position: relative;
+  padding-bottom: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.verpopcon
+{
+  width: 500rpx;
+  height: 200rpx;
+}
+.verpopcon textarea
+{
+  width: 500rpx;
+  height: 200rpx;
+  font-size: 24rpx !important;
+  resize: none;
+}
+
+.verpopbtn
+{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+.verconcat
+{
+  margin-top: 20rpx;
+}
+.verconcat input
+{
+  width: 650rpx;
+  height: 70rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #dedede;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.verchooseaddr
+{
+  width: 100rpx;
+  font-size: 11rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+}

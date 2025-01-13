@@ -1,0 +1,234 @@
+.user{
+	width:750rpx;
+	min-height: 100%;
+	background-color: #312C39;
+	color: #fff;
+	position: relative;
+	
+	.user-top{
+		height: 200rpx;
+		display: flex;
+		align-items: center;
+		padding: 0 60rpx;
+		.img{
+			width: 108rpx;
+			height: 108rpx;
+			border-radius: 50%;
+			margin-right: 20rpx;
+			border: 4rpx solid #E8E8E8;
+		}
+		.user-desc{
+			.user-name{
+				display: flex;
+				align-items: center;
+				color: #fff;
+				margin-bottom: 20rpx;
+				.name{
+					font-weight: bold;
+					margin-right: 20rpx;
+				}
+				.user-vip{
+					height: 36rpx;
+					width: 104rpx;
+					border-radius: 32rpx;
+					display: flex;
+					align-items: center;
+					padding: 0 8rpx;
+					border: 1rpx solid #F7D9BA;
+					color:#E5BE96;
+					image{
+						height: 22rpx;
+						width: 24rpx;
+						border: none;
+						margin-right: 8rpx;
+					}
+					view{
+						font-size: 20rpx;
+					}
+				}
+			}
+			.user-id{
+				color: #fff;
+				font-size: 24rpx;
+				&.dm{
+					display: flex;
+					align-items: center;
+					image{
+						width: 110rpx;
+						height: 42rpx;
+						margin-left: 10rpx;
+					}
+				}
+			}
+		}
+	}
+	.user-wallet{
+		width: 650rpx;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		background: url(https://pic.hlt.hnpinxun.cn/jubensha/user_bg.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		.user-coupon{
+			width: 260rpx;
+			height: 180rpx;
+			padding-top: 40rpx;
+			text-align: center;
+			font-size: 28rpx;
+			color: #fff;
+			.user-coupon-img{
+				margin: 0 auto;
+				margin-bottom: 28rpx;
+				image{
+					width: 72rpx;
+					height: 54rpx;
+				}
+			}
+			.user-coupon-num{
+				font-size: 24rpx;
+			}
+		}
+	}
+	.user-bot{
+		padding: 30rpx;
+		.bot-one{
+			height: 128rpx;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.one-left{
+				display: flex;
+				font-size: 28rpx;
+				align-items: center;
+				.left-img{
+					width: 40rpx;
+					height: 40rpx;
+					margin-right: 30rpx;
+					image{
+						width: 40rpx;
+						height: 40rpx;
+					}
+				}
+			}
+		}
+	}
+}
+.user-pop{
+	position: absolute;
+	top: 0;
+	left: 30rpx;
+	width: 690rpx;
+	height: 380rpx;
+	background: rgba(56,53,61,0.75);
+	border-radius: 40rpx;
+	box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(27,27,27,0.25); 
+	backdrop-filter: blur(16rpx);
+	padding-top: 120rpx;
+	.pop-top{
+		width: 210rpx;
+		height: 100rpx;
+		margin: 0 auto;
+		margin-bottom: 50rpx;
+		color: #fff;
+		font-size: 32rpx;
+	}
+	.pop-bot{
+		width: 220rpx;
+		height: 68rpx;
+		margin: 0 auto;
+		color: #312c39;
+		text-align: center;
+		font-size: 28rpx;
+		line-height: 68rpx;
+		border-radius: 80rpx;
+		background: linear-gradient(123.72deg, #B0FEFE -9.96%, #FEFFCA 57.08%, #FFC7CD 120.69%), #C4C4C4;
+		box-shadow: 0rpx 4rpx 4rpx 0rpx rgba(32,32,32,0.20); 
+	}
+}
+
+
+	.popview
+	{
+		padding: 50rpx;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		background-color: #FFFFFF;
+		border-radius: 20rpx;
+		border-radius: 80rpx;
+		width: 500rpx;
+		.poptitle
+		{
+			font-size: 30rpx;
+			color: #333333;
+		}
+		.popbom
+		{
+			display: flex;
+			align-items: center;
+			width: 100%;
+			justify-content: center;
+			margin-top: 50rpx;
+			.popcancel
+			{
+				width: 120rpx;
+				height: 60rpx;
+				line-height: 60rpx;
+				background-color: #dedede;
+				text-align: center;
+				font-size: 28rpx;
+				border-radius: 10rpx;
+				color: #666;
+			}
+			.popconfirm
+			{
+				width: 120rpx;
+				height: 60rpx;
+				line-height: 60rpx;
+				background-color: #ff7c7c;
+				text-align: center;
+				font-size: 28rpx;
+				border-radius: 10rpx;
+				margin-left: 50rpx;
+			}
+		}
+	}
+
+// 整体背景色
+.light{
+	background-color: $clolr-fff;
+	color: $clolr-333;
+}
+.light-user-pop{
+	background: #fff !important;
+	box-shadow: none !important;
+}
+.light-pop-top{
+	color: #333 !important;
+}
+.light-pop-bot{
+	background: linear-gradient(107deg,#ff9458, #ff7c7c 100%) !important;
+	color: #fff !important;
+}
+//名字颜色
+.light-name{
+	color: $clolr-333;
+}
+//会员id
+.light-id{
+	color: $clolr-999;
+}
+//钱包背景图
+.light-wallet{
+	background: url(https://pic.hlt.hnpinxun.cn/jubensha/user_bgl1.png) !important;
+	background-size: cover !important;
+}
+//优惠券字体颜色
+.light-coupon{
+	color: $clolr-333;
+}
+

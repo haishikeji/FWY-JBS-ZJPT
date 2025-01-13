@@ -1,0 +1,405 @@
+/* pages/juben/index.wxss */
+.filterview
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.filter-top
+{
+  display: flex;
+  align-items: center;
+  font-size: 12rpx;
+}
+.filter-top input
+{
+  width: 160rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+  border-radius: 6rpx;
+  font-size: 11rpx;
+  border: 1rpx solid #dedede;
+}
+.fendian
+{
+  width: 160rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+  border-radius: 6rpx;
+  font-size: 11rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.picker
+{
+  width: 160rpx;
+  height: 30rpx;
+  color: #333333;
+  z-index: 16;
+  position: absolute;
+  left: 0;
+  top: 0rpx;
+  border: none !important;
+}
+.picker1
+{
+  width: 160rpx;
+  height: 30rpx;
+  color: #999999;
+  z-index: 16;
+  left: 10rpx;
+  top: 0rpx;
+  position: absolute;
+}
+.arrow
+{
+  position: absolute;
+  right: 10rpx;
+  top: 2rpx;
+  z-index: 2;
+}
+.s_btn
+{
+  display: flex;
+  align-items: center;
+  width: 70rpx;
+  height: 32rpx;
+  justify-content: center;
+  border-radius: 6rpx;
+  font-size: 12rpx;
+  color: #ffffff;
+  margin-left: 10rpx;
+  cursor: pointer;
+}
+.filter-cate
+{
+  width: 100%;
+  display: flex;
+  font-size: 12rpx;
+  margin-top: 10rpx;
+}
+.showmore
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11rpx;
+  cursor: pointer;
+}
+.showmore text
+{
+  margin-right: 5rpx;
+  cursor: pointer;
+}
+.cateview
+{
+  width: 600rpx;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 11rpx;
+  height: 120rpx;
+  overflow: hidden;
+}
+.showallh
+{
+  height: auto !important;
+}
+.cateitem
+{
+   min-width: 70rpx;
+   height: 30rpx;
+   text-align: center;
+   line-height: 30rpx;
+   border-radius: 4rpx;
+   margin: 0 6rpx;
+   margin-bottom: 10rpx;
+   cursor: pointer;
+}
+.active
+{
+  background-color: #1D4ABD;
+  color: #ffffff;
+}
+
+.add
+{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  font-size: 12rpx;
+}
+.center
+{
+   top: 80rpx;
+   left: 0;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.add text
+{
+  text-decoration: underline; 
+  cursor: pointer;
+  margin: 0 10rpx;
+}
+
+.jubenview
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  min-height: 200rpx;
+  position: relative;
+}
+.list
+{
+  margin-top: 40rpx;
+  width: 100%;
+  padding: 0 5rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.jubenitem
+{
+  width: 325rpx;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 14rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.dele
+{
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+.jubenimg
+{
+  width: 90rpx;
+  height: 130rpx;
+}
+.iteminfo
+{
+  margin-left: 10rpx;
+  height: 120rpx;
+  width: 200rpx;
+}
+.iteminfo-title
+{
+  font-size: 12rpx;
+  margin-left: 5rpx;
+}
+.iteminfo-tag
+{
+  width: 200rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8rpx;
+  height: 60rpx;
+  overflow: hidden;
+}
+.itemtag
+{
+  height: 20rpx;
+  padding: 0 6rpx;
+  box-sizing: border-box;
+  font-size: 9rpx;
+  background-color: #4A619A;
+  color: #ffffff;
+  text-align: center;
+  line-height: 20rpx;
+  border-radius: 4rpx;
+  margin: 5rpx;
+}
+.iteminfo-price
+{
+  font-size: 10rpx;
+  margin-left: 5rpx;
+  /* margin-top: 25rpx; */
+}
+.iteminfo-price text
+{
+  font-size: 12rpx;
+  color: #F36737;
+}
+
+.pageview
+{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pre,.next
+{
+  width: 70rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #f6f6f6 ;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 16rpx;
+}
+.pagenum
+{
+  font-size: 16rpx;
+  color: #333333;
+  margin: 0 50rpx;
+}
+.pagenum text
+{
+  font-weight: 500;
+  font-size: 18rpx;
+}
+
+
+.verfendian
+{
+  border-radius: 10rpx;
+}
+.verpicker,.verpicker1,.verfendian
+{
+  width: 670rpx;
+  height: 70rpx;
+  font-size: 26rpx;
+  line-height: 70rpx;
+}
+.verpicker
+{
+  left: 10rpx !important;
+}
+.verinput
+{
+  height: 70rpx;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  font-size: 26rpx;
+}
+.ver_sbtn
+{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+}
+
+.vercateview
+{
+  width: 100%;
+  height: 200rpx;
+}
+.vercateitem
+{
+  min-width: 150rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+.vershowmore
+{
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+
+.veradd
+{
+  margin: 20rpx;
+  float: right;
+  font-size: 24rpx;
+}
+.veradd text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.verlist
+{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.verjubenitem
+{
+  width: 100%;
+  height: 270rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.verdele
+{
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+}
+.verjubenimg
+{
+  width: 164rpx;
+  height: 220rpx;
+  border-radius: 5rpx;
+}
+.veriteminfo
+{
+  width: 495rpx;
+  height: 200rpx;
+  margin-left: 20rpx;
+}
+.veriteminfo-tag
+{
+  width: 490rpx;
+  height: 70rpx;
+  overflow: hidden;
+}
+
+.veritemtag
+{
+  height: 35rpx;
+  line-height: 35rpx;
+  padding: 0 15rpx;
+  font-size: 20rpx;
+}
+.veriteminfo-price
+{
+  margin-left: 5rpx;
+  /* margin-top: 20rpx; */
+}
+.veriteminfo-price text
+{
+  color: #F36737;
+  font-size: 28rpx;
+}
+.vercenter
+{
+  width: 710rpx;
+  text-align: center;
+}

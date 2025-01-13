@@ -1,0 +1,28 @@
+.card {
+  margin-bottom: 50px;
+}
+
+.pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.sx {
+  cursor: pointer;
+}
+
+.tishi {
+  color: #666;
+  margin-bottom: 20px;
+  padding: 0 30px;
+
+  span {
+    color: red;
+  }
+}

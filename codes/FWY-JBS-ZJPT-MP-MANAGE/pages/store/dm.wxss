@@ -1,0 +1,300 @@
+/* pages/store/dm.wxss */
+.body
+{
+  margin: 20rpx;
+  width: 710rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.filteritem
+{
+  font-size: 11rpx;
+  margin-top: 10rpx;
+}
+.filteritem input
+{
+  width: 160rpx;
+  height: 28rpx;
+  padding-left: 10rpx;
+  border-radius: 4rpx;
+  font-size: 10rpx;
+  border: 1rpx solid #dedede;
+}
+.fendian
+{
+  width: 160rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  padding-left: 10rpx;
+  border-radius: 6rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.picker
+{
+  width: 160rpx;
+  height: 28rpx;
+  color: #333333;
+  z-index: 16;
+  position: absolute;
+  left: 0;
+  top: 0rpx;
+  border:none !important;
+}
+.picker1
+{
+  width: 160rpx;
+  height: 28rpx;
+  color: #999999;
+  z-index: 16;
+  left: 10rpx;
+  top: 0rpx;
+  position: absolute;
+}
+.arrow
+{
+  position: absolute;
+  right: 10rpx;
+  top: 2rpx;
+  z-index: 2;
+}
+.searchbtn
+{
+  width: 60rpx;
+  height: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9rpx;
+  color: #ffffff;
+  border-radius: 5rpx;
+  cursor: pointer;
+}
+.searchbtn text
+{
+  margin-left: 4rpx;
+  cursor: pointer;
+}
+.list
+{
+  border-left: 1rpx solid #DEDEDE;
+}
+.tableview
+{
+  margin-top: 30rpx;
+  width: 100%;
+  /* border-left: 1rpx solid #DEDEDE; */
+  border-top: 1rpx solid #DEDEDE;
+  border-bottom: 1rpx solid #DEDEDE;
+}
+.tableheader
+{
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+}
+.tableheader_name
+{
+  height: 50rpx;
+  text-align: center;
+  /* line-height: 50rpx; */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #333333;
+}
+.normal
+{
+  width: 80rpx;
+}
+.big
+{
+  width: 120rpx !important;
+}
+.large
+{
+  width: 200rpx;
+}
+.tableheader_value
+{
+  height: 50rpx;
+  text-align: center;
+  /* line-height: 50rpx; */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #000000;
+}
+.tableheader_value image
+{
+  width: 30rpx;
+  height: 30rpx;
+}
+.whitebg
+{
+  background-color: #ffffff;
+}
+.tableheader_value text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.xf
+{
+  margin-right: 10rpx;
+}
+
+.pageview
+{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pre,.next
+{
+  width: 70rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #f6f6f6 ;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 16rpx;
+  cursor: pointer;
+}
+.pagenum
+{
+  font-size: 16rpx;
+  color: #333333;
+  margin: 0 50rpx;
+}
+.pagenum text
+{
+  font-weight: 500;
+  font-size: 18rpx;
+}
+
+.fonts
+{
+  font-size: 9rpx;
+}
+
+.addview
+{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.addview text
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.verbody
+{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding-top: 10rpx;
+  position: relative;
+}
+.verfilteritem
+{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.verfilteritem input
+{
+  width: 550rpx;
+  height: 70rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+.verfendian
+{
+  width: 550rpx;
+  height: 70rpx;
+  box-sizing: border-box;
+  line-height: 70rpx;
+}
+.verpicker,.verpicker1
+{
+  width: 540rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.vertableview
+{
+  margin-top: 70rpx;
+  /* border-left: 1rpx solid #DEDEDE; */
+  border-top: 1rpx solid #DEDEDE;
+  border-bottom: 0rpx solid #DEDEDE;
+}
+.vertableheader
+{
+  background-color: #ffffff;
+}
+
+.verbody1
+{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding-top: 10rpx;
+  position: relative;
+}
+.big1
+{
+  width: 135rpx;
+}
+.normal1
+{
+  width: 84rpx;
+}
+.normal2
+{
+  width: 100rpx;
+}
+
+.vertableheader_value
+{
+  flex-direction: column;
+  justify-content: center;
+}
+.veritemh
+{
+  height: 70rpx;
+}
+.nodata
+{
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  color: #999999;
+  margin-left: -2rpx;
+}
+.versearchbtn
+{
+  width: 200rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  margin: 30rpx auto;
+  margin-bottom: 0;
+}

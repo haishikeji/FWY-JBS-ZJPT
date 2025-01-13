@@ -1,0 +1,447 @@
+<!--pages/coupon/index.wxml-->
+<wxs src="../../utils/tool.wxs" module="tool"></wxs>
+<block wx:if="{{sysmodel=='hor'}}">
+<view class="topview">
+  <view class="title">
+    <view class="titleline bgcolor"></view>
+    <view>优惠券管理</view>
+  </view>
+  <view class="downcview f-11" bindtap="showdown" wx:if="{{darray.length>0}}">
+    <text>已下架优惠券({{dtotal}})张</text>
+  </view>
+
+  <view class="filter-top m-t-20">
+    <view style=" margin-right: 6px;">优惠券名称：</view>
+    <input type="text" placeholder="请输入优惠券名称" bindinput="getdname"/>
+    <view class="m-l-30">优惠券类型：</view>
+    <view class="fendian b-a">
+      <!-- <picker bindchange="bindPickerChange" value="{{shopindex}}" range="{{shoparr}}" range-key='name'>
+        <view class="picker" wx:if="{{shopindex!=-1}}">
+          {{shoparr[shopindex].name}}
+        </view>
+        <view class="picker1" wx:else>请选择优惠券类型</view>
+      </picker> -->
+      <input class="picker" placeholder="请选择优惠券类型" bindtap="pickonShow" value="{{shoparr[shopindex].name}}" disabled/>
+      <l-icon name="down" color="#333333" size="13" class="arrow"/>
+    </view>
+
+  </view>
+
+  <view class="filter-top m-t-20">
+  <view style=" margin-right: 6px;">优惠券状态：</view>
+    <view class="fendian b-a">
+      <!-- <picker bindchange="bindPickerChange0" value="{{shopindex0}}" range="{{shoparr0}}" range-key='name'>
+        <view class="picker" wx:if="{{shopindex0!=-1}}">
+          {{shoparr0[shopindex0].name}}
+        </view>
+        <view class="picker1" wx:else>请选择优惠券状态</view>
+      </picker> -->
+      <input class="picker" placeholder="请选择优惠券状态" bindtap="pickonShow0" value="{{shoparr0[shopindex0].name}}" disabled />
+      <l-icon name="down" color="#333333" size="13" class="arrow"/>
+    </view>
+  </view>
+
+
+  <view class="confirmbtn bgcolor" bindtap="gosearch">搜索</view>
+</view>
+
+<view class="ruleview">
+  <view  bindtap="addclick" class="add fontcolor {{array.length==0?'center':''}}"><text>新增优惠券</text></view>
+  <view class="list" wx:if="{{array.length>0}}">
+    <block wx:for="{{array}}" wx:key='item'>
+      <navigator url="../coupon/detail?id={{item.id}}" hover-class="none">
+      <view class="ruleitem">
+        <view class="rulestate f-10 r_use" wx:if="{{item.state==1}}">使用中</view>
+        <view class="rulestate f-10 r_end" wx:if="{{item.state==3}}">已结束</view>
+        <view class="rulecon f-11">
+          <view>优惠券名称：</view>
+          <view class="ruledesc over1">{{item.title}}</view>
+        </view>
+        <view class="rulecon f-11">
+          <view>优惠券类型：</view>
+          <view class="ruledesc">{{tool.parseType(item.type)}}</view>
+        </view>
+        <view class="rulecon f-11">
+          <view>发放数量：</view>
+          <view class="ruledesc">{{item.total==0?'无限制':item.total+'张'}}(已领取{{item.users}}张)</view>
+        </view>
+        <view class="rulecon f-11">
+          <view>使用到期时间：</view>
+          <view class="ruledesc">{{item.vtime?tool.substr(item.vtime,16):'无限制'}}</view>
+        </view>
+
+        <view class="rulebtn bgcolor m-t-10">查看详情</view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+
+  <view class="pageview" wx:if="{{array.length>0}}">
+      <view class="pre" bindtap="gopre">上一页</view>
+      <view class="pagenum"><text>{{page}}</text>/{{total}}</view>
+      <view class="next" bindtap="gonext">下一页</view>
+    </view>
+</view>
+
+
+<l-popup show="{{popshow}}" content-align="right">
+  <view class="popview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="16"/>
+    </view>
+    
+    <view class="title">
+      <view class="titleline bgcolor"></view>
+      <view>新增优惠券</view>
+    </view>
+
+    <view class="popitem poptop f-11 d-flex">
+      <view>优惠券名称：</view>
+      <input type="text" placeholder="请输入优惠券名称" bindinput="getc_name" />
+    </view>
+
+    <view class="popitem f-11 d-flex">
+      <view>优惠券类型：</view>
+      <view class="fendian b-a-f">
+        <!-- <picker bindchange="bindPickerChange1" value="{{shopindex1}}" range="{{shoparr1}}" range-key='name'>
+          <view class="picker" wx:if="{{shopindex1!=-1}}">
+            {{shoparr1[shopindex1].name}}
+          </view>
+          <view class="picker1" wx:else>请选择优惠券类型</view>
+        </picker> -->
+        <input class="picker" placeholder="请选择优惠券类型" bindtap="pickonShow1" value="{{shoparr1[shopindex1].name}}" disabled/>
+        <l-icon name="down" color="#333333" size="13" class="arrow"/>
+      </view>
+    </view>
+
+     <!-- 免单券     -->
+    <view class="popitem f-11 d-flex" wx:if="{{shopindex1==0}}">
+      <view>最高免单金额：</view>
+      <input type="text" placeholder="请输入最高免单金额" bindinput="getfreemoney" type="number"/>
+    </view>
+    <!-- 折扣券 -->
+    <view class="popitem f-11 d-flex" wx:if="{{shopindex1==1}}">
+      <view>请输入折扣额度：</view>
+      <input type="digit" placeholder="请输入折扣额度（例：7.5）" bindinput="getzkmoney" type="number"/>
+    </view>
+    <view class="popitem f-11 d-flex" wx:if="{{shopindex1==1}}">
+      <view>是否限制仅自己可用：</view>
+      <view class="f-10 m-r-10">否</view>
+      <switch style="zoom:.8" color='#1D4ABD' bindchange='selfbindchange' checked='{{selfchecked}}'></switch>
+      <view class="f-10 m-l-10">是</view>
+    </view>
+    <view class="popitem f-8 poptip" wx:if="{{shopindex1==1}}">
+      <view>*开启仅限自己可用表示折扣券仅可为自己订单支付时享有折扣权益，为同场好友支付时不享受此优惠</view>
+    </view>
+
+    
+    <!-- 代金券 -->
+    <view class="popitem f-11 d-flex" wx:if="{{shopindex1==2}}">
+      <view>请输入代金券金额：</view>
+      <input type="text" placeholder="请输入代金券金额" bindinput="getquanmoney" type="number"/>
+    </view>
+    <view class="popitem f-11 d-flex" wx:if="{{shopindex1==2}}">
+      <view>代金券使用门槛金额：</view>
+      <input type="text" placeholder="请输入代金券使用门槛金额，0为不限" bindinput="getlimitmoney" type="number"/>
+    </view>
+
+    <!--  -->
+    <view class="popitem f-11 d-flex">
+      <view>发放数量：</view>
+      <input type="text" placeholder="请输入发放数量，0为不限" bindinput="getcount" type="number"/>
+    </view>
+    <view class="popitem f-11 d-flex">
+      <view>单人领取次数：</view>
+      <input type="text" placeholder="请输入单人领取次数，0为不限" bindinput="getsignlenum" type="number"/>
+    </view>
+
+    <view class="popitem f-11 d-flex">
+      <view>是否限制领取时间：</view>
+      <view class="f-10 m-r-10">否</view>
+      <switch style="zoom:.8" color='#1D4ABD' bindchange='lingbindchange' checked='{{lingchecked}}'></switch>
+      <view class="f-10 m-l-10">是</view>
+    </view>
+    <view class="popitem f-11 d-flex" wx:if="{{lingchecked}}">
+      <view>领取时间：</view>
+      <input type="text" placeholder="开始时间" disabled="true" class="stimeinput" bindtap="showtimepicker" data-type="1" value="{{lingstime}}"/>
+      <view class=" m-l-10 m-r-10">至</view>
+      <input type="text" placeholder="截止时间" disabled="true" class="stimeinput" bindtap="showtimepicker" data-type="2" value="{{lingetime}}"/>
+    </view>
+    
+
+    <view class="popitem f-11 d-flex">
+      <view>是否限制使用时间：</view>
+      <view class="f-10 m-r-10">否</view>
+      <switch style="zoom:.8" color='#1D4ABD' bindchange='usebindchange' checked='{{usechecked}}'></switch>
+      <view class="f-10 m-l-10">是</view>
+    </view>
+
+    <view class="popitem f-11 d-flex" wx:if="{{usechecked}}">
+      <view>使用截止时间：</view>
+      <input type="text" placeholder="使用截止时间" disabled="true" bindtap="showtimepicker" data-type="3" value="{{usetime}}"/>
+    </view>
+
+
+    <view class="popbtn bgcolor" bindtap="addrequest">创建优惠券</view>
+  </view>
+</l-popup> 
+
+<blockmenu />
+
+
+
+
+<l-popup show="{{dpopshow}}" content-align="right">
+  <view class="downpopview">
+    <view class="dpopclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="16"/>
+    </view>
+    
+    <view class="poptitle f-12 b-b">已下架优惠券</view>
+
+    <scroll-view scroll-y="true" class="popscroll" bindscrolltolower='getmore'>
+      <block wx:for="{{darray}}" wx:key='item'>
+        <view class="scrollitem b-b">
+          <view class="f-10">{{tool.substr(item.createTime,16)}}</view>
+          <view class="f-11 m-t-10">优惠券名称：{{item.title}}</view>
+          <view class="f-11 m-t-10">优惠券类型：{{tool.parseType(item.type)}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</l-popup>
+
+
+
+</block>
+
+
+
+<block wx:if="{{sysmodel=='ver'}}">
+  <view class="vbbtitle" style="position: relative;">
+    <view class="vbbtitleline bgcolor"></view>
+    <view>优惠券管理</view>
+
+    <view class="downcview f-22 verdowncview" bindtap="showdown" wx:if="{{darray.length>0}}">
+      <text>已下架优惠券({{dtotal}})张</text>
+    </view>
+  </view>
+
+  <view class="topview">
+    <view class="filterview">
+    <view class="f-26">优惠券名称：</view>
+    <input type="text" placeholder="请输入优惠券名称" bindinput="getdname" class="b-a f-24 verinput m-t-20"/>
+    <view class="f-26 m-t-20">优惠券类型：</view>
+    <view class="fendian verfendian b-a m-t-20">
+      <!-- <picker bindchange="bindPickerChange" value="{{shopindex}}" range="{{shoparr}}" range-key='name'>
+        <view class="picker verpicker" wx:if="{{shopindex!=-1}}">
+          {{shoparr[shopindex].name}}
+        </view>
+        <view class="picker1 verpicker1" wx:else>请选择优惠券类型</view>
+      </picker> -->
+      <input class="picker verpicker" placeholder="请选择优惠券类型" bindtap="pickonShow" value="{{shoparr[shopindex].name}}" disabled/>
+
+      <l-icon name="down" color="#333333" size="26" class="arrow verarrow"/>
+    </view>
+    <view class="f-26 m-t-20">优惠券状态：</view>
+    <view class="fendian verfendian b-a m-t-20">
+      <!-- <picker bindchange="bindPickerChange0" value="{{shopindex0}}" range="{{shoparr0}}" range-key='name'>
+        <view class="picker verpicker" wx:if="{{shopindex0!=-1}}">
+          {{shoparr0[shopindex0].name}}
+        </view>
+        <view class="picker1 verpicker1" wx:else>请选择优惠券状态</view>
+      </picker> -->
+      <input class="picker verpicker" placeholder="请选择优惠券状态" bindtap="pickonShow0" value="{{shoparr0[shopindex0].name}}" disabled/>
+      <l-icon name="down" color="#333333" size="26" class="arrow verarrow"/>
+    </view>
+
+    <view class="ver_sbtn bgcolor m-t-30" bindtap="gosearch">
+      <l-icon name="research" color="#ffffff" size="24"/>
+      <view style="margin-left: 10rpx;">搜索</view>
+    </view>
+  </view>
+  </view>
+
+  <view class="veradd" wx:if="{{array.length>0}}">
+    <view></view>
+    <view  bindtap="addclick" class="fontcolor"><text>新增优惠券</text></view>
+  </view>
+  
+  <view class="verlist">
+    <view class="listadd" wx:if="{{array.length==0}}" bindtap="addclick">
+      <image src="../../images/19.png"></image>
+      <text>新增优惠券</text>
+    </view>
+    <block wx:for="{{array}}" wx:key='item'>
+    <navigator url="../coupon/detail?id={{item.id}}" hover-class="none">
+      <view class="verruleitem">
+        <view class="rulestate f-20 r_use" wx:if="{{item.state==1}}">使用中</view>
+        <view class="rulestate f-20 r_end" wx:if="{{item.state==3}}">已结束</view>
+        <view class="rulecon f-28 verrulecon">
+          <view>优惠券名称：</view>
+          <view class="ruledesc over2">{{item.title}}</view>
+        </view>
+        <view class="rulecon f-28 verrulecon">
+          <view>优惠券类型：</view>
+          <view class="ruledesc">{{tool.parseType(item.type)}}</view>
+        </view>
+        <view class="rulecon f-28 verrulecon">
+          <view>发放数量：</view>
+          <view class="ruledesc">{{item.total==0?'无限制':item.total+'张'}}(已领取{{item.users}}张)</view>
+        </view>
+        <view class="rulecon f-28 verrulecon">
+          <view>使用到期时间：</view>
+          <view class="ruledesc">{{item.vtime?tool.substr(item.vtime,16):'无限制'}}</view>
+        </view>
+
+        <view class="rulebtn bgcolor m-t-20 verrulebtn">查看详情</view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+
+
+  <l-popup show="{{popshow}}" content-align="bottom">
+  <view class="verpopview">
+    <view class="popclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="26"/>
+    </view>
+    
+    <view class="vbbtitle">
+      <view class="vbbtitleline bgcolor"></view>
+      <view>优惠券管理</view>
+    </view>
+
+    <scroll-view scroll-y="true" class="verscroll">
+    <view class="popitem poptop f-28 m-l-30 ">
+      <view>优惠券名称：</view>
+      <input type="text" placeholder="请输入优惠券名称" bindinput="getc_name"/>
+    </view>
+    <view class="popitem poptop f-28 m-l-30 ">
+      <view>优惠券类型：</view>
+      <view class="fendian b-a-f verpopfendian m-t-10">
+        <!-- <picker bindchange="bindPickerChange1" value="{{shopindex1}}" range="{{shoparr1}}" range-key='name'>
+          <view class="picker verpoppicker" wx:if="{{shopindex1!=-1}}">
+            {{shoparr1[shopindex1].name}}
+          </view>
+          <view class="picker1 verpoppicker1" wx:else>请选择优惠券类型</view>
+        </picker> -->
+        <input class="picker verpicker" placeholder="请选择优惠券类型" bindtap="pickonShow1" value="{{shoparr1[shopindex1].name}}" disabled/>
+        <l-icon name="down" color="#333333" size="26" class="arrow"/>
+      </view>
+    </view>
+
+    <!-- 免单券 -->
+    <view class="popitem poptop f-28 m-l-30 " wx:if="{{shopindex1==0}}">
+      <view>最高免单金额：</view>
+      <input type="text" placeholder="请输入最高免单金额" bindinput="getfreemoney" type="number"/>
+    </view>
+    <!-- 折扣券 -->
+    <view class="popitem poptop f-28 m-l-30 " wx:if="{{shopindex1==1}}">
+      <view>折扣额度：</view>
+      <input type="digit" placeholder="请输入折扣额度（例：7.5）" bindinput="getzkmoney" type="number"/>
+      <view class="popitem f-28 d-flex">
+        <view>是否限制仅自己可用：</view>
+        <view class="f-28 m-r-10">否</view>
+        <switch style="zoom:.8" color='#1D4ABD' bindchange='selfbindchange' checked='{{selfchecked}}'></switch>
+        <view class="f-28 m-l-10">是</view>
+      </view>
+      <view class="f-20 verpoptip">*开启仅限自己可用表示折扣券仅可为自己订单支付时享有折扣权益，为同场好友支付时不享受此优惠</view>
+    </view>
+    <!-- 代金券 -->
+    <view class="popitem poptop f-28 m-l-30 " wx:if="{{shopindex1==2}}">
+      <view>请输入代金券金额：</view>
+      <input type="text" placeholder="请输入代金券金额" bindinput="getquanmoney" type="number"/>
+    </view>
+    <view class="popitem poptop f-28 m-l-30 " wx:if="{{shopindex1==2}}">
+      <view>代金券使用门槛金额：</view>
+      <input type="text" placeholder="请输入代金券使用门槛金额，0为不限" bindinput="getlimitmoney" type="number"/>
+    </view>
+
+    <!-- 公共 -->
+    <view class="popitem poptop f-28 m-l-30 ">
+      <view>发放数量：</view>
+      <input type="text" placeholder="请输入发放数量，0为不限" bindinput="getcount" type="number"/>
+    </view>
+    <view class="popitem poptop f-28 m-l-30 ">
+      <view>单人领取次数：</view>
+      <input type="text" placeholder="请输入单人领取次数，0为不限" bindinput="getsignlenum" type="number"/>
+    </view>
+
+    <view class="popitem poptop f-28 m-l-30 d-flex">
+      <view>是否限制领取时间：</view>
+      <view class="f-28 m-r-10">否</view>
+      <switch style="zoom:.8" color='#1D4ABD' bindchange='lingbindchange' checked='{{lingchecked}}'></switch>
+      <view class="f-28 m-l-10">是</view>
+    </view>
+    <view class="popitem poptop f-28 m-l-30 d-flex" wx:if="{{lingchecked}}">
+      <view>领取时间：</view>
+      <input type="text" placeholder="开始时间" disabled="true" class="stimeinput verstimeinput" bindtap="showtimepicker" data-type="1" value="{{lingstime}}"/>
+      <view class=" m-l-10 m-r-10">至</view>
+      <input type="text" placeholder="截止时间" disabled="true" class="stimeinput verstimeinput" bindtap="showtimepicker" data-type="2" value="{{lingetime}}"/>
+    </view>
+    
+    <view class="popitem poptop f-28 m-l-30 d-flex">
+      <view>是否限制使用时间：</view>
+      <view class="f-28 m-r-10">否</view>
+      <switch style="zoom:.8" color='#1D4ABD' bindchange='usebindchange' checked='{{usechecked}}'></switch>
+      <view class="f-28 m-l-10">是</view>
+    </view>
+
+    <view class="popitem poptop f-28 m-l-30" wx:if="{{usechecked}}">
+      <view>使用截止时间：</view>
+      <input type="text" placeholder="使用截止时间" disabled="true" bindtap="showtimepicker" data-type="3" value="{{usetime}}"/>
+    </view>
+
+
+    <view class="verpopbtn bgcolor" bindtap="addrequest">创建优惠券</view>
+    </scroll-view>
+  </view>
+</l-popup> 
+
+<l-popup show="{{dpopshow}}" content-align="bottom">
+  <view class="verdownpopview">
+    <view class="dpopclose" catchtap="closepop">
+      <l-icon name="close" color="#999999" size="26"/>
+    </view>
+    
+    <view class="poptitle f-12 b-b verpoptitle">已下架优惠券</view>
+
+    <scroll-view scroll-y="true" class="verpopscroll" bindscrolltolower='getmore'>
+      <block wx:for="{{darray}}" wx:key='item'>
+        <view class="scrollitem b-b">
+          <view class="f-26">{{tool.substr(item.createTime,16)}}</view>
+          <view class="f-28 m-t-10">优惠券名称：{{item.title}}</view>
+          <view class="f-28 m-t-10">优惠券类型：{{tool.parseType(item.type)}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</l-popup> 
+
+</block>
+
+
+<l-popup show="{{timepopshow}}" content-align="bottom"> 
+<view class="timepickerview">
+  <van-datetime-picker
+    type="datetime"
+    value="{{ currentDate }}"
+    min-date="{{ minDate }}"
+    max-date="{{ maxDate }}"
+    bind:confirm="pickerconfirm"
+  />
+
+</view>
+</l-popup> 
+
+
+<l-popup show="{{pickshow}}" content-align="bottom" >
+  <van-picker show-toolbar columns="{{ shoparr }}" bind:confirm="pickonChange" value-key='name'  bind:cancel="onCancel"/>
+</l-popup>
+<l-popup show="{{pickshow0}}" content-align="bottom">
+  <van-picker show-toolbar columns="{{ shoparr0 }}" bind:confirm="pickonChange0" value-key='name'  bind:cancel="onCancel"/>
+</l-popup>
+<l-popup show="{{pickshow1}}" content-align="bottom">
+  <van-picker show-toolbar columns="{{ shoparr1 }}" bind:confirm="pickonChange1" value-key='name'  bind:cancel="onCancel"/>
+</l-popup>

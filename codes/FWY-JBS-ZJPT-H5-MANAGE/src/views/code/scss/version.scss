@@ -1,0 +1,133 @@
+h2,
+h4 {
+  font-weight: 500;
+}
+
+.box {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);
+  padding: 20px 30px 30px;
+}
+
+h4 {
+  margin-bottom: 30px;
+}
+
+.list {
+  .item {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e7e7eb;
+    font-size: 14px;
+    padding: 20rpx;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .left {
+      width: 120px;
+      float: left;
+
+      label {
+        width: 6em;
+        color: #9a9a9a;
+      }
+
+      p {
+        font-size: 22px;
+        display: block;
+        padding-top: 2px;
+        word-wrap: break-word;
+        word-break: break-all;
+        margin: 10px 0;
+      }
+    }
+
+    .middle {
+      float: left;
+      .moddle-item {
+        padding-top: 20px;
+
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+
+      label {
+        width: 6em;
+        color: #9a9a9a;
+        float: left;
+        margin-right: 1em;
+      }
+
+      p {
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow: hidden;
+        margin: 0;
+      }
+    }
+
+    .right {
+      float: right;
+      margin-left: 30px;
+      display: flex;
+      align-items: center;
+
+      .menu {
+        .el-dropdown-link {
+          margin-left: 10px;
+          padding: 8px 5px;
+          box-sizing: border-box;
+          color: #FFF;
+          background-color: #67C23A;
+          border-color: #67C23A;
+        }
+
+        .el-icon--right {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+}
+
+.empty_box {
+  .empty_tips {
+    padding: 60px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.tyb {
+
+  .smallerwei {
+    width: 12px;
+    height: 12px;
+    margin-top: -1px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(https://res.wx.qq.com/mmbizwxampnodelogicsvr_node/dist/images/index_z_@all_006ec1.png) 0 -16px no-repeat;
+    pointer-events: none;
+
+  }
+
+}

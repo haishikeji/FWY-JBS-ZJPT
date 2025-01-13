@@ -1,0 +1,187 @@
+/* swiper{
+	min-height: 1170rpx;
+} */
+.coupon{
+	min-height: 100%;
+	padding-bottom: 30rpx;
+}
+.coupon-tab{
+	margin-bottom: 40rpx;
+	// background-color: #312C39;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 40rpx;
+}
+
+.tab-one{
+	width: 110rpx;
+	height: 110rpx;
+	line-height: 110rpx;
+	text-align: center;
+	color: #9F9F9F;
+	&.active{
+		color: #FFF29A;	
+		border-bottom:4rpx solid #FFF29A;
+	}
+}
+.tab-one{
+	width: 180rpx;
+	height: 110rpx;
+	line-height: 110rpx;
+	text-align: center;
+	color: #9F9F9F;
+	&.active{
+		color: #FFF29A;	
+		border-bottom:4rpx solid #FFF29A;
+	}
+}
+.coupon-content{
+	
+}
+.coupon-one{
+	position: relative;
+	width: 650rpx;
+	height: 200rpx;
+	margin: 0 auto;
+	display: flex;
+	margin-bottom: 20rpx;
+	.coupon-out
+	{
+		height: 200rpx;
+		width: 60rpx;
+		background-color: #DADADA;
+		position: absolute;
+		right: 0;
+		top:0;
+		color: #999999;
+		text-align: center;
+		border-top-right-radius: 20rpx;
+		border-bottom-right-radius: 20rpx;
+		padding: 40rpx 10rpx;
+	}
+	.coupon-top-l{
+		width: 240rpx;
+		height: 200rpx;
+		text-align: center;
+		padding-top: 30rpx;
+		color: #fff;
+    // TODO 线上图片
+		&.use0{
+			background: url(https://pic.hlt.hnpinxun.cn/jubensha/coupon_1.png);
+			background-size: cover;
+		}
+		&.use1{
+			background: url(https://pic.hlt.hnpinxun.cn/jubensha/coupon_1.png);
+			background-size: cover;
+		}
+		&.use3{
+			background: url(https://jbs.yt.hnpinxun.cn/1.png);
+			background-size: cover;
+		}
+		&.use2{
+			background: url(https://pic.hlt.hnpinxun.cn/jubensha/coupon_3.png);
+			background-size: cover;
+		}
+	}
+	.coupon-top-r{
+			width: 430rpx;
+			padding-left: 36rpx;
+			background-color: #fff;
+			border-bottom-right-radius: 20rpx;
+			border-top-right-radius: 20rpx;
+			/* display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap; */
+			.top-r-top{
+				padding-top: 26rpx;
+				margin-bottom: 16rpx;
+				color: #000;
+				font-size: 28rpx;
+				font-weight: 500;
+			}
+			.top-r-c{
+				margin-bottom: 30rpx;
+				color: #999;
+				font-size: 24rpx;
+				font-weight: normal;
+			}
+			.top-r-b{
+				display: flex;
+				font-size: 24rpx;
+				align-items: center;
+				height: 30rpx;
+				justify-content: space-between;
+				padding-right: 20rpx;
+				.red{
+					color: #FA717D;
+					margin-right: 10rpx;
+				}
+				.c999{
+					color: #999;					
+					margin-right: 10rpx;
+				}
+				.blue{
+					color: #78B2F1;					
+					margin-right: 10rpx;
+				}
+				image{
+					width: 24rpx;
+					height: 24rpx;
+				}
+				.lingbtn
+				{
+					width: 150rpx;
+					height: 50rpx;
+					background: linear-gradient(107deg,#ff9c80 0%, #f5427a 100%);
+					border-radius: 25rpx;
+					color: #FFFFFF;
+					text-align: center;
+					line-height: 50rpx;
+				}
+			}
+	}
+	/* .coupon-bot{
+		padding: 0 30rpx;
+		height: 60rpx;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	} */
+	.coupon-img{
+		position: absolute;
+		bottom: 12rpx;
+		right: 16rpx;
+		image{
+			width: 96rpx;
+			height: 96rpx;
+		}
+	}
+}
+.nodata{
+	margin-top: 100rpx;
+		text-align: center;
+		color: #fff;
+		image{
+			width: 750rpx;
+			height: 460rpx;
+		}
+}
+.light-index{
+	background: #fff !important;
+}
+.light-coupon-tab{
+	border-bottom: 1rpx solid #dedede !important;
+}
+.light-tab-one{
+	color: #333 !important;
+	&.active{
+		color: #FF9D66 !important;
+		border-bottom: 4rpx solid #FF9D66 !important;
+	}
+}
+.light-coupon-one{
+	background: #ffffff !important;
+	box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0,0,0,0.10) !important; 
+}
